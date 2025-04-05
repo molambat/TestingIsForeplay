@@ -24,16 +24,3 @@
 | Exit Criteria              | When testing is considered complete                                             | All critical tests passed, no blocker bugs, test report validated            |
 
 ---
-
-## 📄 Notes & Recommendations
-
-- Log **all test execution results**, including failed cases.
-- Never delete logs, even if bugs are later fixed — they’re proof of value.
-- Always include a **clear disclaimer** if some tests couldn't be run before release.
-- Use screenshots, videos, and logs in bug reports.
-- Communicate test status and risks **proactively**.
-
-
----
-
-> QA isn’t just about catching bugs — it’s about building **trust** through clarity, consistency, and continuous feedback.
