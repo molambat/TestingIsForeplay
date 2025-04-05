@@ -1,3 +1,4 @@
+// We're not just checking selectors — we're seducing them.
 describe('Navigation - LamboDrip Homepage', () => {
   const baseUrl = 'https://lambodrip.com';
 

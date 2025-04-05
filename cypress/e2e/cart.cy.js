@@ -1,3 +1,4 @@
+// We're not just checking selectors — we're seducing them.
 describe('Cart Functionality - LamboDrip', () => {
   const baseUrl = 'https://lambodrip.com';
 
@@ -27,7 +28,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${baseUrl}/cart`);
     cy.get('input[id="Quantity-1"]').clear().type('2');
-    cy.focused().trigger('keydown', { keyCode: 9, which: 9 }); // simulate Tab
+    cy.focused().trigger('keydown', { keyCode: 9, which: 9 });
     cy.wait(400);
     cy.get('input[id="Quantity-1"]').should('have.value', '2');
   });
@@ -37,7 +38,6 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${baseUrl}/cart`); 
-    // Supprime
     cy.get('cart-remove-button[id="Remove-1"]').click({ force: true });
     cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
