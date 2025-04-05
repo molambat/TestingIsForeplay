@@ -66,6 +66,13 @@ and you never go to production without a little excitement first. 😉
 README.md
 
 ---
+## 📚 Bonus Guide
+
+🧠 QA Tips & Best Practices
+→ [QA Tips & Best Practices (Full Guide)](./Docs/QA_Tips_Best_Practices.md)
+
+
+---
 
 ## 🤖 Coming next...
 
