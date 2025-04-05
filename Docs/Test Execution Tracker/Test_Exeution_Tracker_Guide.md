@@ -2,18 +2,24 @@
 
 ## 📚 Table of Contents
 
-- [What is a Master Test Plan?](#what-is-a-master-test-plan)
-- [Why is a Master Test Plan Important?](#why-is-a-master-test-plan-important)
-- [How to Use the Master Test Plan?](#how-to-use-the-master-test-plan)
-- [Understanding Different Formats](#understanding-different-formats)
+- [1. Introduction](#1-introduction)
+  - [Why is a Test Execution Tracker Important?](#why-is-a-test-execution-tracker-important)
+- [2. File Structure](#2-file-structure)
+  - [2.1 Test Execution Tracker](#21-test-execution-tracker)
+  - [2.2 Parameters (Statuses & Testers)](#22-parameters-statuses--testers)
+  - [2.3 Summary](#23-summary)
+- [3. Available File Formats](#3-available-file-formats)
   - [Markdown (.md)](#markdown-md)
   - [CSV (.csv)](#csv-csv)
   - [HTML (.html)](#html-html)
   - [JSON (.json)](#json-json)
-- [Tools That Can Be Connected](#tools-that-can-be-connected)
-- [Common Questions](#common-questions)
-- [Final Notes](#final-notes)
-
+- [4. How to Use the Test Execution Tracker](#4-how-to-use-the-test-execution-tracker)
+  - [4.1 Adding New Test Cases](#41-adding-new-test-cases)
+  - [4.2 Updating Test Execution Status](#42-updating-test-execution-status)
+  - [4.3 Understanding the Dashboard](#43-understanding-the-dashboard)
+- [5. Integration with Other Tools](#5-integration-with-other-tools)
+- [6. Best Practices](#6-best-practices)
+- [7. FAQ & Final Notes](#7-faq--final-notes)
 
 ## 1\. Introduction
 

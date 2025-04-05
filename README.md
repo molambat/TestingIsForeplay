@@ -75,8 +75,10 @@ README.md
 → [Master Test Plan](./Docs/MasterTestPlan/Master_test_Plan.md)
 
 👉 TestExecutionTracker
-→ [Test Execution Tracker](./Docs/Test Execution Tracker/Test_Execution_Tracker.md)
+→ [Test Execution Tracker](./Docs/Test%20Execution%20Tracker/Test_Execution_Tracker.md)
 
+👉 Defect Management Template
+→ [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)
 
 ---
 
