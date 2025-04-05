@@ -83,7 +83,7 @@ README.md
 👉 TNR Checklist
 → [TNR Checklist Template](./Docs/TNR%20Checklist/TNR_Checklist.md)
 
-- 🎯 [Why Company Needs QA? – Slides (PPT & PDF)](./Docs/Why_QA)
+🎯 [Why Company Needs QA? – Slides (PPT & PDF)](./Docs/Why_QA)
 
 ---
 
