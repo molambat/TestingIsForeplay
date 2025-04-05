@@ -1,4 +1,4 @@
-#  TestingIsForeplay
+# 💄 TestingIsForeplay
 
 ![teasing gif here](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHFyZnBwZnk3YzV2NGQ5dDh4dTZocHRnYTU0dHRnY3hod3gyejZuNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ybuKc5xTF2gC5na/giphy.gif)
 
@@ -7,6 +7,8 @@
 Welcome to my personal automation playground — where clean code meets seductive precision.
 
 ---
+
+## 🔍 What’s this?
 
 ## 🔍 What’s this?
 
@@ -64,10 +66,13 @@ and you never go to production without a little excitement first. 😉
 README.md
 
 ---
-## 📚 Bonus Guide
+## 📎 Attachments
 
 🧠 QA Tips & Best Practices
 → [QA Tips & Best Practices (Full Guide)](./Docs/QA_Tips_Best_Practices.md)
+
+👉 Master Test Plan
+→ [Master Test Plan](https://github.com/molambat/TestingIsForeplay/blob/main/Docs/MasterTestPlan/Master_test_Plan.md)
 
 
 ---
