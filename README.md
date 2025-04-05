@@ -10,8 +10,6 @@ Welcome to my personal automation playground — where clean code meets seductiv
 
 ## 🔍 What’s this?
 
-## 🔍 What’s this?
-
 This repo is a curated playground for:
 
 - 🔬 Testing real-world app flows with **Cypress**
