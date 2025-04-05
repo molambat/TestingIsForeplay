@@ -80,6 +80,11 @@ README.md
 👉 Defect Management Template
 → [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)
 
+👉 TNR Checklist
+→ [TNR Checklist Template](./Docs/TNR%20Checklist/TNR_Checklist.md)
+
+- 🎯 [Why Company Needs QA? – Slides (PPT & PDF)](./Docs/Why_QA)
+
 ---
 
 ## 🤖 Coming next...
