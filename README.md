@@ -2,9 +2,9 @@
 
 ![teasing gif here](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHFyZnBwZnk3YzV2NGQ5dDh4dTZocHRnYTU0dHRnY3hod3gyejZuNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ybuKc5xTF2gC5na/giphy.gif)
 
-**Cypress-driven QA, polished by passion. Nothing flaky allowed — unless it's intentional. 😉**
+**Cypress-driven QA, polished by passion. Nothing flaky allowed 😉**
 
-Welcome to my personal automation playground — where clean code meets seductive precision.
+Welcome to my personal automation playground 
 > Warning: This repo contains explicit attention to detail and intense QA sessions.
 
 ---
@@ -35,9 +35,8 @@ Everything here is crafted from experience in real missions — clean, readable,
 
 Because **good QA is the art of anticipation**:  
 You detect the tension before the crash,  
-you know exactly where to focus,  
-you never go to production without a little excitement first. 
-And because when foreplay is good, you don’t even need a release note. 😉
+You know exactly where to focus,  
+And you never go to production without a little excitement first. 
 
 ---
 ## 🧪 Stack & Tools (current & planned)
@@ -47,7 +46,7 @@ And because when foreplay is good, you don’t even need a release note. 😉
 | ✅ Main focus | Cypress |
 | 🧠 Manual QA | Test case templates (Markdown), Bug reporting |
 | ⏳ Coming soon | GitHub Actions (CI), test dashboards |
-| ⛔ Not used (yet) | TypeScript, Postman, Selenium, RobotFramework |
+| ⏳ Coming soon | TypeScript, Postman, Selenium, RobotFramework |
 
 ---
 
@@ -103,8 +102,6 @@ I build test strategies, set up automation from scratch, and turn messy flows in
 I build QA pipelines that purr when triggered, and leave no component untouched.
 
 ✨ Fun fact: I also create content on the side — because being serious doesn’t mean being boring.
-QA by day, creative troublemaker by night.  
-Yes, I read specs — but I also know how to leave the right ports open. 😉  
 [See all my sides here → linkr.bio/m.lambat](https://linkr.bio/m.lambat)
 
 ---
@@ -115,10 +112,6 @@ Want to collaborate on a QA mission (remote-only)?
 Reach out via [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) or [Malt](https://www.malt.fr/profile/mohammadlambat).
 
 ---
-> “Testing is foreplay.
-> You tease the edge cases, touch all the sensitive points, and leave no scenario untouched.”
-> I test like I love: with clean setups, full coverage… and zero resistance to deep exploration.
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![QA Love](https://img.shields.io/badge/Flaky%20tests-not%20welcome-red)
-![NSFW-Safe](https://img.shields.io/badge/NSFW%20approved-Yes%2C%20but%20classy-ff69b4)
