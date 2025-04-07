@@ -102,7 +102,7 @@ I build test strategies, set up automation from scratch, and turn messy flows in
 I build QA pipelines that purr when triggered, and leave no component untouched.
 
 ✨ Fun fact: I also create content on the side — because being serious doesn’t mean being boring.
-[See all my sides here → linkr.bio/m.lambat](https://linkr.bio/m.lambat)
+[See all my sides here → (https://github.com/molambat/QAbyDayNSFWbyNight))
 
 ---
 
