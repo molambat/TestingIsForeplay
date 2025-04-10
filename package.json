@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axe-core": "^4.10.3",
     "cypress": "^14.2.1",
     "cypress-axe": "^1.6.0",
     "cypress-grep": "^3.0.4",
