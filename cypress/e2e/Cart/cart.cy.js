@@ -125,11 +125,12 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('tr.cart-item', { timeout: 15000 }).should('exist').and('be.visible');
   
     // 🔘 Checkout button
-    cy.get('form[action*="/checkout"] button[name="checkout"]', { timeout: 10000 })
-      .should('be.visible')
-      .scrollIntoView()
-      .click({ force: true });
-  
+    cy.get('.cart__footer button[name="checkout"]', { timeout: 10000 })
+    .should('be.visible')
+    .scrollIntoView()
+    .click({ force: true });
+    cy.wait(500);
+    cy.reload();
     cy.wait(1000);
     cy.url({ timeout: 15000 }).should('match', /\/(checkout|checkouts)\b/);
   });  
