@@ -99,10 +99,15 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.get('button[name="checkout"]').scrollIntoView().click({ force: true });
     cy.wait(400);
-    cy.url({ timeout: 10000 }).should('include', '/checkout');
+    cy.get('button[name="checkout"]', { timeout: 10000 }).scrollIntoView().click({ force: true });
+  
+    // 🔄 Check répétée jusqu’à atteindre /checkout
+    cy.url({ timeout: 10000 }).should((url) => {
+      expect(url).to.match(/\/(checkout|checkouts)\b/);
+    });
   });
+  
 
   it('should update total price when quantity changes', { tags: ['@cart', '@price', '@regression'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
@@ -113,13 +118,16 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(500);
     cy.reload();
     waitUntilProductReallyInCart();
+  
+    cy.get('.totals__total-value', { timeout: 10000 }).should('exist');
     cy.get('.totals__total-value').invoke('text').then((totalBefore) => {
       cy.get('button.quantity__button[name="plus"]').click({ force: true });
-      cy.wait(800);
-      cy.get('.totals__total-value').invoke('text').should((totalAfter) => {
+  
+      // 🔁 Attendre que le prix change vraiment
+      cy.get('.totals__total-value', { timeout: 8000 }).invoke('text').should((totalAfter) => {
         expect(totalAfter.trim()).not.to.eq(totalBefore.trim());
       });
     });
-  });
+  });  
 
 });

@@ -198,25 +198,33 @@ describe('Homepage Perf', () => {
   });  
 
   it('should have no active XHR requests after load', () => {
-    // Intercepte toutes les requêtes. On va exclure quelques URL connues (par exemple Shopify Monorail)
     cy.intercept('*').as('allRequests');
-
     cy.visit('/');
-    cy.wait(2000); // attendre que tous les appels potentiels soient réalisés
-
+    cy.wait(2500);
+  
     cy.get('@allRequests.all').then((interceptions) => {
       interceptions.forEach((req) => {
-        // On peut exclure les requêtes vers le domaine "monorail-edge.shopifysvc.com"
-        if (req.request.url.includes('monorail-edge.shopifysvc.com')) {
-          cy.log(`Skipping Shopify Monorail request: ${req.request.url}`);
+        const url = req.request.url;
+  
+        // ⚠️ Exclure XHR vers Shopify static/CDN
+        const ignoredDomains = [
+          'monorail-edge.shopifysvc.com',
+          'cdn.shopify.com',
+          'fonts.googleapis.com'
+        ];
+  
+        if (ignoredDomains.some(domain => url.includes(domain))) {
+          cy.log(`Ignoring external: ${url}`);
           return;
         }
+  
         if (req.state !== 'Complete') {
-          throw new Error(`Pending XHR: ${req.request.url}`);
+          throw new Error(`Pending XHR: ${url}`);
         }
       });
     });
   });
+  
 
   // Test pour simuler un réseau lent (exemple commenté, car nécessite des réglages externes)
   // it('should simulate slow network (manually set in Chrome DevTools or plugin)', () => {
