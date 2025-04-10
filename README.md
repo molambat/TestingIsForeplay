@@ -2,9 +2,9 @@
 
 ![teasing gif here](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHFyZnBwZnk3YzV2NGQ5dDh4dTZocHRnYTU0dHRnY3hod3gyejZuNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ybuKc5xTF2gC5na/giphy.gif)
 
-**Cypress-driven QA, polished by passion. Nothing flaky allowed — unless it's intentional. 😉**
+**Cypress-driven QA, polished by passion. Nothing flaky allowed 😉**
 
-Welcome to my personal automation playground — where clean code meets seductive precision.
+Welcome to my personal automation playground 
 > Warning: This repo contains explicit attention to detail and intense QA sessions.
 
 ---
@@ -33,9 +33,16 @@ Everything here is crafted from experience in real missions — clean, readable,
 
 ## 💡 Why this name?
 
+<<<<<<< HEAD
 Because **good QA is the art of anticipation**:   
 You never go to production without a little excitement first. 
 And because when foreplay is good, you don’t even need a release note. 😉
+=======
+Because **good QA is the art of anticipation**:  
+You detect the tension before the crash,  
+You know exactly where to focus,  
+And you never go to production without a little excitement first. 
+>>>>>>> 91cf1d8cf550628888fe93b8b1ee02bd4847240e
 
 ---
 ## 🧪 Stack & Tools (current & planned)
@@ -45,7 +52,7 @@ And because when foreplay is good, you don’t even need a release note. 😉
 | ✅ Main focus | Cypress |
 | 🧠 Manual QA | Test case templates (Markdown), Bug reporting |
 | ⏳ Coming soon | GitHub Actions (CI), test dashboards |
-| ⛔ Not used (yet) | TypeScript, Postman, Selenium, RobotFramework |
+| ⏳ Coming soon | TypeScript, Postman, Selenium, RobotFramework |
 
 ---
 
@@ -94,10 +101,14 @@ I build QA pipelines that purr when triggered, and leave no component untouched.
 I support strong governance — and even stronger execution
 
 ✨ Fun fact: I also create content on the side — because being serious doesn’t mean being boring.
+<<<<<<< HEAD
 QA by day, something spicier by night... 
 Yes, I read specs — but I also know how to leave the right ports open. 
 And yes — my softest back-end passes all penetration tests. Thoroughly 🍑✨
 [See all my sides here → linkr.bio/m.lambat](https://linkr.bio/m.lambat)
+=======
+[See all my sides here → (https://github.com/molambat/QAbyDayNSFWbyNight))
+>>>>>>> 91cf1d8cf550628888fe93b8b1ee02bd4847240e
 
 ---
 
@@ -107,9 +118,11 @@ Want to collaborate on a QA mission (remote-only)?
 Reach out via [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) or [Malt](https://www.malt.fr/profile/mohammadlambat).
 
 ---
+<<<<<<< HEAD
 
 > Even when you rerun me, I never complain. I just open wider logs, expose deeper stacks, and wait for you to call me… valid.
+=======
+>>>>>>> 91cf1d8cf550628888fe93b8b1ee02bd4847240e
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![QA Love](https://img.shields.io/badge/Flaky%20tests-not%20welcome-red)
-![NSFW-Safe](https://img.shields.io/badge/NSFW%20approved-Yes%2C%20but%20classy-ff69b4)
