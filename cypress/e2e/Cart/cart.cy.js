@@ -57,6 +57,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.reload();
     cy.wait(400);
     waitForCartItems();
+    cy.wait(400);
     cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible').within(() => {
       cy.get('input.quantity__input').clear().type('2');
     });
@@ -86,6 +87,7 @@ describe('Cart Functionality - LamboDrip', () => {
     // ✅ On attend que le produit soit bien dans le panier
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
+    waitForCartItems();
     waitUntilProductReallyInCart();
   
     // 🟢 Revenir sur homepage et ajouter un second produit
@@ -110,7 +112,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
-  
+    waitForCartItems();
+    cy.wait(500);
     // S’assurer que le panier est prêt (produit bien visible)
     cy.get('tr.cart-item', { timeout: 15000 }).should('exist').and('be.visible');
   
