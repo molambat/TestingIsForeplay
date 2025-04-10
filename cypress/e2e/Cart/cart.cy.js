@@ -97,18 +97,24 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
+  
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.wait(400);
-    cy.get('form[action*="/checkout"] button[name="checkout"]')
-    .should('be.visible')
-    .scrollIntoView()
-    .click({ force: true });
-    // 🔄 Check répétée jusqu’à atteindre /checkout
-    cy.url({ timeout: 10000 }).should((url) => {
-      expect(url).to.match(/\/(checkout|checkouts)\b/);
-    });
+    cy.wait(500);
+  
+    // S’assurer que le panier est prêt (produit bien visible)
+    cy.get('tr.cart-item', { timeout: 15000 }).should('exist').and('be.visible');
+  
+    // ✅ Cibler précisément le bouton de checkout dans le footer du panier
+    cy.get('.cart__footer button[name="checkout"]', { timeout: 10000 })
+      .should('be.visible')
+      .scrollIntoView()
+      .click({ force: true });
+  
+    // 🔄 Vérifie qu'on est bien redirigé vers checkout
+    cy.url({ timeout: 10000 }).should('match', /\/(checkout|checkouts)\b/);
   });
+  
   
 
   it('should update total price when quantity changes', { tags: ['@cart', '@price', '@regression'] }, () => {
