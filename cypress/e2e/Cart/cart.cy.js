@@ -1,6 +1,24 @@
 // We're not just checking selectors — we're seducing them.
 describe('Cart Functionality - LamboDrip', () => {
 
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // Ignore known Shopify bug in cart page
+    if (err.message.includes('close')) {
+      return false;
+    }
+  });
+
+  const waitForCartToLoad = () => {
+    cy.get('body').then(($body) => {
+      if ($body.find('.cart-items').length) {
+        return;
+      } else {
+        cy.wait(500);
+        waitForCartToLoad();
+      }
+    });
+  };
+
   beforeEach(() => {
     cy.visit('/');
     cy.wait(500);
@@ -41,9 +59,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
-    cy.visit(`${Cypress.config().baseUrl}/cart`); 
-    cy.wait(400);
-    cy.get('.cart-items', { timeout: 10000 }).should('exist');
+    cy.visit(`${Cypress.config().baseUrl}/cart`);
+    waitForCartToLoad();
     cy.get('cart-remove-button').first().find('a.button--tertiary').click({ force: true });
     cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
