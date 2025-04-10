@@ -8,7 +8,7 @@ describe('Homepage Security Tests', () => {
 
   // Test 2 : Vérifier la présence de headers de sécurité courants
   it('should have common security headers', () => {
-    cy.request(baseUrl).then((response) => {
+    cy.request('/').then((response) => {
       // On vérifie que Strict-Transport-Security est présent
       expect(response.headers).to.have.property('strict-transport-security');
       // Vérifie X-Frame-Options : typiquement "DENY" ou "SAMEORIGIN"
@@ -32,7 +32,7 @@ describe('Homepage Security Tests', () => {
     const alertStub = cy.stub();
     cy.on('window:alert', alertStub);
     const xssPayload = '"><script>alert("XSS")</script>';
-    cy.visit(`${baseUrl}?test=${encodeURIComponent(xssPayload)}`);
+    cy.visit(`${Cypress.config().baseUrl}?test=${encodeURIComponent(xssPayload)}`);
     // Attendre un court délai pour laisser le temps au payload de potentiellement s'exécuter
     cy.wait(500).then(() => {
       expect(alertStub, 'No alert should be triggered by XSS payload').not.to.be.called;
@@ -48,7 +48,7 @@ describe('Homepage Security Tests', () => {
       }
     });
   
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.document().then((doc) => {
       const allElements = doc.getElementsByTagName('*');
       let foundInline = 0;

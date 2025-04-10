@@ -10,7 +10,7 @@ describe('Homepage Perf', () => {
 
   it('should load the homepage in under 2 seconds (DOM interactive)', () => {
     const t0 = performance.now();
-    cy.visit(baseUrl).then(() => {
+    cy.visit('/').then(() => {
       const t1 = performance.now();
       const duration = t1 - t0;
       cy.log(`Page loaded in ${duration} ms`);
@@ -20,7 +20,7 @@ describe('Homepage Perf', () => {
 
   it('should display the header quickly (under 1s)', () => {
     const t0 = performance.now();
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.get('header', { timeout: 1000 })
       .should('be.visible')
       .then(() => {
@@ -33,7 +33,7 @@ describe('Homepage Perf', () => {
 
   it('should load main hero section under 1500ms', () => {
     const t0 = performance.now();
-    cy.visit(baseUrl);
+    cy.visit('/');
     // Si votre site n'utilise pas .hero, .main-banner, ou .featured, adaptez ce sélecteur.
     // Par exemple, si la section principale est identifiée par <main id="MainContent">, utilisez '#MainContent'
     cy.get('.hero, .main-banner, .featured, #MainContent', { timeout: 1500 })
@@ -183,7 +183,7 @@ describe('Homepage Perf', () => {
     cy.viewport('macbook-15');
   
     const t0 = performance.now();
-    cy.visit(baseUrl).then(() => {
+    cy.visit('/').then(() => {
       // Cibler le contenu principal pour éviter les éléments cachés du menu
       cy.get('#MainContent', { timeout: 4000 })
         .contains(/Shop now|Discover|Explore|Shop|Collections/i, { timeout: 4000 })
@@ -201,7 +201,7 @@ describe('Homepage Perf', () => {
     // Intercepte toutes les requêtes. On va exclure quelques URL connues (par exemple Shopify Monorail)
     cy.intercept('*').as('allRequests');
 
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.wait(2000); // attendre que tous les appels potentiels soient réalisés
 
     cy.get('@allRequests.all').then((interceptions) => {
@@ -221,7 +221,7 @@ describe('Homepage Perf', () => {
   // Test pour simuler un réseau lent (exemple commenté, car nécessite des réglages externes)
   // it('should simulate slow network (manually set in Chrome DevTools or plugin)', () => {
   //   cy.log('This test assumes throttling is set manually or via a plugin.');
-  //   cy.visit(baseUrl);
+  //   cy.visit('/');
   //   cy.get('header', { timeout: 3000 }).should('be.visible');
   // });
 });

@@ -23,7 +23,7 @@ describe('Navigation - LamboDrip Homepage', () => {
 
   it('should navigate back home via the logo', () => {
     cy.get('a[href="/"]').filter(':visible').first().click();
-    cy.url().should('eq', `${baseUrl}/`);
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
   it('should navigate to the Shop page', () => {
