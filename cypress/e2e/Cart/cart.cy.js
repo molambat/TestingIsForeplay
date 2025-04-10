@@ -82,59 +82,55 @@ describe('Cart Functionality - LamboDrip', () => {
   });
 
   it('should handle multiple products in the cart', { tags: ['@cart', '@regression'] }, () => {
-    cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
-    cy.wait(200);
-    cy.get('button[name="add"]').should('exist').click({ force: true });
+    const goAddProduct = () => {
+      cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
+      cy.get('button[name="add"]').should('exist').click({ force: true });
+      cy.wait(1000); // Attente un peu plus longue pour que Shopify enregistre
+    };
   
-    // ✅ On attend que le produit soit bien dans le panier
+    // ➕ Premier produit
+    goAddProduct();
+  
+    // 🔁 Vérifie panier non vide
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.wait(500);
     waitForCartItems();
+    cy.get('tr.cart-item', { timeout: 15000 }).should('have.length.at.least', 1);
+    
+    // ➕ Deuxième produit
+    cy.visit('/');
     cy.wait(500);
-    waitForCartItems();
-    waitUntilProductReallyInCart();
-  
-    // 🟢 Revenir sur homepage et ajouter un second produit
-    cy.visit(`${Cypress.config().baseUrl}`);
     cy.get('a[href*="/products"]').filter(':visible').last().click({ force: true });
     cy.get('button[name="add"]').should('exist').click({ force: true });
+    cy.wait(1000);
   
+    // 🔁 Recheck panier
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.wait(500);
     waitForCartItems();
-    cy.wait(500);
-    waitUntilProductReallyInCart();
   
-    // ✅ Vérifie qu'on a bien au moins 2 items
-    cy.get('tr.cart-item', { timeout: 10000 }).should('have.length.at.least', 2);
+    // ✅ Assertion finale
+    cy.get('tr.cart-item', { timeout: 15000 }).should('have.length.at.least', 2);
   });
   
-
   it('should go to checkout from the cart', { tags: ['@cart', '@checkout', '@critical'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
-    cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
+    cy.wait(1000); // laisse Shopify traiter l'ajout
   
-    cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.wait(500);
     waitForCartItems();
-    cy.wait(500);
-    // S’assurer que le panier est prêt (produit bien visible)
+  
+    // 🔍 Attendre produit
     cy.get('tr.cart-item', { timeout: 15000 }).should('exist').and('be.visible');
   
-    // ✅ Cibler précisément le bouton de checkout dans le footer du panier
-    cy.get('.cart__footer button[name="checkout"]', { timeout: 10000 })
+    // 🔘 Checkout button
+    cy.get('form[action*="/checkout"] button[name="checkout"]', { timeout: 10000 })
       .should('be.visible')
       .scrollIntoView()
       .click({ force: true });
   
-    // 🔄 Vérifie qu'on est bien redirigé vers checkout
-    cy.url({ timeout: 10000 }).should('match', /\/(checkout|checkouts)\b/);
-  });
+    cy.url({ timeout: 15000 }).should('match', /\/(checkout|checkouts)\b/);
+  });  
   
-  
-
   it('should update total price when quantity changes', { tags: ['@cart', '@price', '@regression'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
