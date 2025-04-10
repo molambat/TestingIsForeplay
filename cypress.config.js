@@ -9,8 +9,8 @@ module.exports = defineConfig({
     json: true,
   },
   e2e: {
+    baseUrl: 'https://lambodrip.com',
     setupNodeEvents(on, config) {
-      baseUrl: 'https://lambodrip.com'
     },
   },
 });
