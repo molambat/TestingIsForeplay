@@ -100,8 +100,10 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
-    cy.get('button[name="checkout"]', { timeout: 10000 }).scrollIntoView().click({ force: true });
-  
+    cy.get('form[action*="/checkout"] button[name="checkout"]')
+    .should('be.visible')
+    .scrollIntoView()
+    .click({ force: true });
     // 🔄 Check répétée jusqu’à atteindre /checkout
     cy.url({ timeout: 10000 }).should((url) => {
       expect(url).to.match(/\/(checkout|checkouts)\b/);

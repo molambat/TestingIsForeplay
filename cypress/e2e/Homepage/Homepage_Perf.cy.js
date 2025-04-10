@@ -210,6 +210,7 @@ describe('Homepage Perf', () => {
         const ignoredDomains = [
           'monorail-edge.shopifysvc.com',
           'cdn.shopify.com',
+          'fonts.shopifycdn.com',
           'fonts.googleapis.com'
         ];
   
