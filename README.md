@@ -13,7 +13,7 @@ Welcome to my personal automation playground — where clean code meets seductiv
 
 This repo is a curated playground for:
 
-- 🔬 Testing real-world app flows with **Cypress**
+- 🔬 Testing real-world app flows (Selenium? Cypress? Doesn’t matter. I know how to handle any stack… deeply)
 - 🧠 Illustrating my **manual QA approach** (test cases, bug reports)
 - 📈 Preparing **CI/CD integration** setups (coming soon)
 
@@ -33,10 +33,8 @@ Everything here is crafted from experience in real missions — clean, readable,
 
 ## 💡 Why this name?
 
-Because **good QA is the art of anticipation**:  
-You detect the tension before the crash,  
-you know exactly where to focus,  
-you never go to production without a little excitement first. 
+Because **good QA is the art of anticipation**:   
+You never go to production without a little excitement first. 
 And because when foreplay is good, you don’t even need a release note. 😉
 
 ---
@@ -51,19 +49,11 @@ And because when foreplay is good, you don’t even need a release note. 😉
 
 ---
 
-## 📁 Project structure (example)
+## 📁 Cypress
 
-/cypress  
- /e2e  
-  - login.cy.js  
-  - checkout.cy.js  
- /support  
-  - commands.js  
-  - e2e.js  
-/tests  
-  - test-cases.md  
-  - bug-report-template.md  
-README.md
+- **Homepage**  
+  *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
+  → [Homepage Tests Readme](https://github.com/molambat/TestingIsForeplay/tree/main/cypress/e2e/Homepage/Readme.md)
 
 ---
 ## 📎 Attachments
@@ -98,13 +88,15 @@ README.md
 ## 👩‍💻 About me
 
 I'm a QA Consultant with 6+ years in the field (5 in development, 1+ in QA).
-I don’t just automate tests — I craft sensual flows that beg to be executed. 
+I don’t just automate — I orchestrate seductive flows that beg for execution.
 I build test strategies, set up automation from scratch, and turn messy flows into predictable systems.
 I build QA pipelines that purr when triggered, and leave no component untouched.
+I support strong governance — and even stronger execution
 
 ✨ Fun fact: I also create content on the side — because being serious doesn’t mean being boring.
-QA by day, creative troublemaker by night.  
-Yes, I read specs — but I also know how to leave the right ports open. 😉  
+QA by day, something spicier by night... 
+Yes, I read specs — but I also know how to leave the right ports open. 
+And yes — my softest back-end passes all penetration tests. Thoroughly 🍑✨
 [See all my sides here → linkr.bio/m.lambat](https://linkr.bio/m.lambat)
 
 ---
@@ -115,9 +107,8 @@ Want to collaborate on a QA mission (remote-only)?
 Reach out via [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) or [Malt](https://www.malt.fr/profile/mohammadlambat).
 
 ---
-> “Testing is foreplay.
-> You tease the edge cases, touch all the sensitive points, and leave no scenario untouched.”
-> I test like I love: with clean setups, full coverage… and zero resistance to deep exploration.
+
+> Even when you rerun me, I never complain. I just open wider logs, expose deeper stacks, and wait for you to call me… valid.
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![QA Love](https://img.shields.io/badge/Flaky%20tests-not%20welcome-red)

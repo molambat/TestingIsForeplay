@@ -1,4 +1,3 @@
-// We're not just checking selectors — we're seducing them.
 describe('Navigation - LamboDrip Homepage', () => {
   const baseUrl = 'https://lambodrip.com';
 
@@ -52,6 +51,26 @@ describe('Navigation - LamboDrip Homepage', () => {
         cy.log(`Skipping external link: ${href}`);
       }
     });
+  });
+
+  it('should update localization and currency when a different country is selected', () => {
+    // Cibler uniquement le premier bouton de localisation visible.
+    cy.get('button.disclosure__button.localization-selector')
+      .filter(':visible')
+      .first()
+      .click({ force: true });
+      
+    // Vérifier que le menu déroulant apparaît.
+    cy.get('div.disclosure__list-wrapper.country-selector', { timeout: 4000 })
+      .should('be.visible');
+
+    // Sélectionner "Hong Kong SAR" dans la liste.
+    cy.contains('a.disclosure__link', 'Hong Kong SAR').click({ force: true });
+    
+    // Vérifier que le bouton de localisation se met à jour avec le pays et la devise "HKD".
+    cy.get('button.disclosure__button.localization-selector')
+      .should('contain', 'Hong Kong SAR')
+      .and('contain', 'HKD');
   });
 
   it('should open the mobile menu if present', () => {
