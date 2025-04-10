@@ -2,8 +2,6 @@
 
 This document is my personal rundown of the tests I built for the LamboDrip homepage (https://lambodrip.com). It’s more than just a checklist—it’s a snapshot of how I make sure our site is fast, secure, accessible, and visually on point. Plus, it’s my way of showing off some QA magic!
 
-*Note: I plan to expand this document soon to include Navigation, Security, Accessibility, Homepage UI, and other tests. For now, enjoy the sections below and follow the Table of Contents to see what’s coming.*
-
 ---
 
 ## Table of Contents
