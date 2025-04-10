@@ -54,6 +54,9 @@ And because when foreplay is good, you don’t even need a release note. 😉
 - **Homepage**  
   *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
   → [Homepage Tests Readme](cypress/e2e/Homepage/README.md)
+  - **Cart**  
+  *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the Cart.*  
+  → [Cart Tests Readme](cypress/e2e/Cart/README.md)
   
 - **⚙️ CI/CD Integration (GitHub Actions)** | I've integrated basic CI with GitHub Actions so that all Cypress tests are triggered automatically on each push to the main branch |
 ![Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/cypress.yml/badge.svg)

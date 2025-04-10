@@ -93,19 +93,24 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
-    cy.get('.totals__total-value').then(($totalBefore) => {
-      const totalBefore = $totalBefore.text();
   
-      cy.get('button.quantity__button[name="plus"]', { timeout: 10000 })
-        .should('be.visible')
-        .should('not.be.disabled')
-        .first()
-        .click({ force: true });
-      cy.wait(400);
-      cy.get('.totals__total-value').should(($totalAfter) => {
-        expect($totalAfter.text()).not.to.eq(totalBefore);
-      });
+    // Attendre que la ligne produit soit présente
+    cy.get('tr.cart-item', { timeout: 10000 }).first().within(() => {
+      cy.get('.totals__total-value')
+        .invoke('text')
+        .then((totalBefore) => {
+          cy.get('button.quantity__button[name="plus"]')
+            .should('be.visible')
+            .should('not.be.disabled')
+            .click({ force: true });
+  
+          cy.wait(500);
+          cy.get('.totals__total-value').invoke('text').should((totalAfter) => {
+            expect(totalAfter).not.to.eq(totalBefore);
+          });
+        });
     });
   });
+  
 
 });
