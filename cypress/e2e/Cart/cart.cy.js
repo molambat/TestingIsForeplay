@@ -5,14 +5,24 @@ describe('Cart Functionality - LamboDrip', () => {
 
   const waitForCartItems = () => {
     cy.waitUntil(() =>
-      cy.get('tr.cart-item').then($el => $el.length > 0),
+      cy.get('body').then($body => {
+        // ✅ Soit il n'y a rien (cart vide), soit y'a au moins un produit
+        if ($body.find('tr.cart-item').length > 0) {
+          return true;
+        }
+        if ($body.text().toLowerCase().includes('your cart is empty')) {
+          return true;
+        }
+        return false; // sinon continue de waitUntil
+      }),
       {
         timeout: 15000,
         interval: 500,
-        errorMsg: '❌ cart items not found'
+        errorMsg: '❌ Cart neither has items nor is empty (still loading)'
       }
     );
   };
+  
 
   beforeEach(() => {
     cy.visit('/');
@@ -24,7 +34,6 @@ describe('Cart Functionality - LamboDrip', () => {
   it('should show the cart as empty when nothing is added', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
-    waitForCartItems();
     cy.contains(/your cart is empty/i).should('exist');
   });
 
