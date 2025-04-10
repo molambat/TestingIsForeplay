@@ -78,20 +78,29 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.contains(/your cart is empty/i, { timeout: 10000 }).should('exist');
   });
 
-  it('should handle multiple products in the cart', { tags: ['@cart', '@regression', '@multi'] }, () => {
+  it('should handle multiple products in the cart', { tags: ['@cart', '@regression'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
-    cy.wait(400);
+  
+    // ✅ On attend que le produit soit bien dans le panier
+    cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.wait(500);
+    waitUntilProductReallyInCart();
+  
+    // 🟢 Revenir sur homepage et ajouter un second produit
     cy.visit(`${Cypress.config().baseUrl}`);
     cy.get('a[href*="/products"]').filter(':visible').last().click({ force: true });
-    cy.get('button[name="add"]').click({ force: true });
-    cy.wait(400);
+    cy.get('button[name="add"]').should('exist').click({ force: true });
+  
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    waitForCartItems();
-    cy.get('.cart-items', { timeout: 10000 }).should('exist');
-    cy.get('tr.cart-item').should('have.length.at.least', 2);
+    cy.wait(500);
+    waitUntilProductReallyInCart();
+  
+    // ✅ Vérifie qu'on a bien au moins 2 items
+    cy.get('tr.cart-item', { timeout: 10000 }).should('have.length.at.least', 2);
   });
+  
 
   it('should go to checkout from the cart', { tags: ['@cart', '@checkout', '@critical'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
