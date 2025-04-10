@@ -23,6 +23,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     if (err.message.includes('this.searchModal is null')) {
       return false; // Empêche Cypress de planter à cause de cette erreur
     }
+    // On ignore toutes les erreurs d'origine cross-origin
+    if (err.message.includes('Script error')) {
+      return false; // Empêche Cypress de planter
+    }
     // Allow other errors to fail the test
     return true;
   });
