@@ -1,4 +1,3 @@
-// We're not just checking selectors — we're seducing them.
 describe('Cart Functionality - LamboDrip', () => {
 
   Cypress.on('uncaught:exception', (err, runnable) => {
