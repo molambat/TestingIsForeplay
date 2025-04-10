@@ -1,5 +1,4 @@
 const { defineConfig } = require("cypress");
-const registerCypressGrep = require('cypress-grep');
 
 module.exports = defineConfig({
   video: true, // Enregistrement vidéo activé
@@ -14,12 +13,18 @@ module.exports = defineConfig({
     json: true,
   },
 
+  env: {
+    grepFilterSpecs: true,   // Active le filtrage par grep
+    grepOmitFiltered: true,  // N'affiche pas les tests filtrés
+  },
+
   e2e: {
     baseUrl: 'https://lambodrip.com',
     setupNodeEvents(on, config) {
-      // Enregistre le plugin cypress-grep
-      registerCypressGrep(config);
+      require('cypress-grep/src/plugin')(config);
       return config;
-    }
+    },
+    specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
+    supportFile: 'cypress/support/e2e.js',
   },
 });
