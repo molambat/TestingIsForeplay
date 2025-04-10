@@ -1,6 +1,18 @@
+import 'cypress-wait-until';
 describe('Cart Functionality - LamboDrip', () => {
 
   Cypress.on('uncaught:exception', () => false);
+
+  const waitForCartItems = () => {
+    cy.waitUntil(() =>
+      cy.get('tr.cart-item').then($el => $el.length > 0),
+      {
+        timeout: 15000,
+        interval: 500,
+        errorMsg: '❌ cart items not found'
+      }
+    );
+  };
 
   beforeEach(() => {
     cy.visit('/');
@@ -12,6 +24,7 @@ describe('Cart Functionality - LamboDrip', () => {
   it('should show the cart as empty when nothing is added', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
+    waitForCartItems();
     cy.contains(/your cart is empty/i).should('exist');
   });
 
@@ -22,6 +35,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
+    waitForCartItems();
     cy.contains('Estimated total').should('exist');
   });
 
@@ -30,7 +44,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(500);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-  
+    waitForCartItems();
     cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible').within(() => {
       cy.get('input.quantity__input')
         .should('exist')
@@ -50,6 +64,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    waitForCartItems();
     cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible');
     cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).first().click({ force: true });
     cy.wait(500);
@@ -67,6 +82,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    waitForCartItems();
     cy.wait(400);
     cy.get('.cart-items', { timeout: 10000 }).should('exist');
     cy.get('tr.cart-item').then(($rows) => {
@@ -91,6 +107,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    waitForCartItems();
     cy.wait(400);
   
     // Attendre que la ligne produit soit présente
