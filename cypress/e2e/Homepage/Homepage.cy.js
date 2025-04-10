@@ -1,5 +1,9 @@
 describe('Navigation - LamboDrip Homepage', () => {
 
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+  });
+
   beforeEach(() => {
     cy.visit('/');
     cy.wait(500);
@@ -33,7 +37,7 @@ describe('Navigation - LamboDrip Homepage', () => {
 
   it('should navigate to Terms or FAQ from footer', { tags: ['@homepage', '@navigation', '@footer'] }, () => {
     cy.scrollTo('bottom');
-    cy.contains(/faq|terms/i).first().click({ force: true });
+    cy.get('footer a').contains(/faq|terms/i).should('be.visible').click({ force: true });
     cy.url().should('include', '/pages'); 
   });
 

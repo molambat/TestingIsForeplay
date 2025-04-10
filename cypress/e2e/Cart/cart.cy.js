@@ -54,6 +54,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(500);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.reload();
+    cy.wait(400);
     waitForCartItems();
     cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible').within(() => {
       cy.get('input.quantity__input').clear().type('2');
