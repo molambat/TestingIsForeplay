@@ -1,8 +1,7 @@
 describe('Navigation - LamboDrip Homepage', () => {
-  const baseUrl = 'https://lambodrip.com';
 
   beforeEach(() => {
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.wait(500);
     cy.handleCookiePopup();
   });

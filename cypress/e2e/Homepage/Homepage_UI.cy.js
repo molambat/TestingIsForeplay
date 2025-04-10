@@ -1,8 +1,7 @@
 describe('Homepage UI Tests', () => {
-  const baseUrl = 'https://lambodrip.com';
 
   beforeEach(() => {
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.wait(500);
     // Call the custom cookie handler if defined
     cy.handleCookiePopup && cy.handleCookiePopup();

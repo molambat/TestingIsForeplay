@@ -1,9 +1,8 @@
 describe('Homepage Perf', () => {
-  const baseUrl = 'https://lambodrip.com';
 
   beforeEach(() => {
     // On visite la page et on attend un petit délai pour que le DOM se stabilise.
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.wait(500);
     // Vérifie que la fonction custom handleCookiePopup existe avant de l'appeler.
     cy.handleCookiePopup && cy.handleCookiePopup();

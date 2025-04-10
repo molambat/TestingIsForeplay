@@ -1,10 +1,9 @@
 import 'cypress-axe';
 
 describe('Homepage Accessibility', () => {
-  const baseUrl = 'https://lambodrip.com';
 
   beforeEach(() => {
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.wait(500);
     if (cy.handleCookiePopup) {
       cy.handleCookiePopup();

@@ -1,9 +1,8 @@
 describe('Homepage Security Tests', () => {
-  const baseUrl = 'https://lambodrip.com';
 
   // Test 1 : Vérifier que le site est servi en HTTPS
   it('should be served over HTTPS', () => {
-    cy.visit(baseUrl);
+    cy.visit('/');
     cy.location('protocol').should('eq', 'https:');
   });
 
