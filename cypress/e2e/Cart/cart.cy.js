@@ -22,6 +22,25 @@ describe('Cart Functionality - LamboDrip', () => {
       }
     );
   };
+
+  const waitUntilProductReallyInCart = () => {
+    cy.waitUntil(() =>
+      cy.get('tr.cart-item').then($items => {
+        if ($items.length === 0) return false;
+        const $el = $items.first();
+        return (
+          $el.find('input.quantity__input').length > 0 &&
+          $el.find('cart-remove-button a.button--tertiary').length > 0
+        );
+      }),
+      {
+        timeout: 15000,
+        interval: 500,
+        errorMsg: '❌ cart-item is not fully interactive yet'
+      }
+    );
+  };
+  
   
 
   beforeEach(() => {
@@ -73,7 +92,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    waitForCartItems();
+    waitUntilProductReallyInCart();
     cy.get('tr.cart-item', { timeout: 15000 })
       .should('have.length.at.least', 1)
       .first()
@@ -119,7 +138,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    waitForCartItems();
+    waitUntilProductReallyInCart();
     cy.wait(400);
   
     // Attendre que la ligne produit soit présente
