@@ -15,7 +15,7 @@ This repo is a curated playground for:
 
 - 🔬 Testing real-world app flows (Selenium? Cypress? Doesn’t matter. I know how to handle any stack… deeply)
 - 🧠 Illustrating my **manual QA approach** (test cases, bug reports)
-- 📈 Preparing **CI/CD integration** setups (coming soon)
+- 📈 **CI/CD integration** setups
 
 Everything here is crafted from experience in real missions — clean, readable, and focused on what really matters: **reliable software**.
 
@@ -54,6 +54,8 @@ And because when foreplay is good, you don’t even need a release note. 😉
 - **Homepage**  
   *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
   → [Homepage Tests Readme](cypress/e2e/Homepage/README.md)
+| **⚙️ CI/CD Integration (GitHub Actions)** | I've integrated basic CI with GitHub Actions so that all Cypress tests are triggered automatically on each push to the main branch |
+![Cypress Tests](https://github.com/your-username/your-repo/actions/workflows/cypress.yml/badge.svg)
 
 ---
 ## 📎 Attachments
