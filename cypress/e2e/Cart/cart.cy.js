@@ -79,6 +79,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
+    cy.reload();
     waitUntilProductReallyInCart();
     cy.get('tr.cart-item', { timeout: 15000 })
       .should('have.length.at.least', 1)
@@ -126,6 +127,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
+    cy.reload();
     waitUntilProductReallyInCart();
     cy.wait(400);
   
