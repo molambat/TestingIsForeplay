@@ -3,7 +3,6 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   video: true, // Enregistrement vidéo activé
   videoCompression: 32,
-  videoUploadOnPasses: true,
 
   reporter: 'mochawesome',
   reporterOptions: {
