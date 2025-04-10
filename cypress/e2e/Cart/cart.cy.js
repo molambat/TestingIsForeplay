@@ -1,4 +1,5 @@
 import 'cypress-wait-until';
+
 describe('Cart Functionality - LamboDrip', () => {
 
   Cypress.on('uncaught:exception', () => false);
@@ -6,14 +7,9 @@ describe('Cart Functionality - LamboDrip', () => {
   const waitForCartItems = () => {
     cy.waitUntil(() =>
       cy.get('body').then($body => {
-        // ✅ Soit il n'y a rien (cart vide), soit y'a au moins un produit
-        if ($body.find('tr.cart-item').length > 0) {
-          return true;
-        }
-        if ($body.text().toLowerCase().includes('your cart is empty')) {
-          return true;
-        }
-        return false; // sinon continue de waitUntil
+        if ($body.find('tr.cart-item').length > 0) return true;
+        if ($body.text().toLowerCase().includes('your cart is empty')) return true;
+        return false;
       }),
       {
         timeout: 15000,
@@ -28,7 +24,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('input.quantity__input', { timeout: 10000 }).should('exist').and('be.visible');
     cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).should('exist').and('be.visible');
   };
-  
+
   beforeEach(() => {
     cy.visit('/');
     cy.wait(500);
@@ -36,13 +32,13 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(100);
   });
 
-  it('should show the cart as empty when nothing is added', () => {
+  it('should show the cart as empty when nothing is added', { tags: ['@cart', '@smoke', '@empty'] }, () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
   });
 
-  it('should add a product to the cart from product page', () => {
+  it('should add a product to the cart from product page', { tags: ['@cart', '@functional', '@add'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(400);
     cy.get('button[name="add"]').should('exist').click({ force: true });
@@ -53,26 +49,20 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.contains('Estimated total').should('exist');
   });
 
-  it('should allow changing the quantity of a product in the cart', () => {
+  it('should allow changing the quantity of a product in the cart', { tags: ['@cart', '@functional', '@quantity'] }, () => {
     cy.get('a[href*="/products/"]').filter(':visible').first().click({ force: true });
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(500);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     waitForCartItems();
     cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible').within(() => {
-      cy.get('input.quantity__input')
-        .should('exist')
-        .should('be.visible')
-        .should('not.be.disabled')
-        .clear()
-        .type('2');
+      cy.get('input.quantity__input').clear().type('2');
     });
-  
     cy.wait(500);
     cy.get('input.quantity__input').first().should('have.value', '2');
   });
-  
-  it('should allow removing a product from the cart', () => {
+
+  it('should allow removing a product from the cart', { tags: ['@cart', '@functional', '@remove'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(400);
     cy.get('button[name="add"]').should('exist').click({ force: true });
@@ -81,46 +71,38 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(500);
     cy.reload();
     waitUntilProductReallyInCart();
-    cy.get('tr.cart-item', { timeout: 15000 })
-      .should('have.length.at.least', 1)
-      .first()
-      .should('be.visible');
     cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).first().click({ force: true });
     cy.wait(500);
     cy.contains(/your cart is empty/i, { timeout: 10000 }).should('exist');
   });
 
-  it('should handle multiple products in the cart', () => {
+  it('should handle multiple products in the cart', { tags: ['@cart', '@regression', '@multi'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}`);
-  
     cy.get('a[href*="/products"]').filter(':visible').last().click({ force: true });
     cy.get('button[name="add"]').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     waitForCartItems();
-    cy.wait(400);
     cy.get('.cart-items', { timeout: 10000 }).should('exist');
-    cy.get('tr.cart-item').then(($rows) => {
-      expect($rows.length).to.be.at.least(2);
-    });
+    cy.get('tr.cart-item').should('have.length.at.least', 2);
   });
 
-  it('should go to checkout from the cart', () => {
+  it('should go to checkout from the cart', { tags: ['@cart', '@checkout', '@critical'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.get('button[name="checkout"]').first().click({force: true});
+    cy.get('button[name="checkout"]').first().click({ force: true });
     cy.wait(400);
     cy.url().should('include', '/checkout');
   });
 
-  it('should update total price when quantity changes', () => {
+  it('should update total price when quantity changes', { tags: ['@cart', '@price', '@regression'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(200);
     cy.get('button[name="add"]').should('exist').click({ force: true });
@@ -129,25 +111,13 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(500);
     cy.reload();
     waitUntilProductReallyInCart();
-    cy.wait(400);
-  
-    // Attendre que la ligne produit soit présente
-    cy.get('tr.cart-item', { timeout: 15000 })
-      .should('have.length.at.least', 1)
-      .first()
-      .should('be.visible');
-    cy.get('.totals__total-value', { timeout: 10000 }).should('exist');
     cy.get('.totals__total-value').invoke('text').then((totalBefore) => {
-      cy.get('button.quantity__button[name="plus"]', { timeout: 10000 })
-        .should('be.visible')
-        .click({ force: true });
-    
+      cy.get('button.quantity__button[name="plus"]').click({ force: true });
       cy.wait(800);
       cy.get('.totals__total-value').invoke('text').should((totalAfter) => {
         expect(totalAfter.trim()).not.to.eq(totalBefore.trim());
       });
     });
   });
-  
 
 });

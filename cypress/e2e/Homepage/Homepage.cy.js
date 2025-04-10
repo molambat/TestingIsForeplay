@@ -6,12 +6,12 @@ describe('Navigation - LamboDrip Homepage', () => {
     cy.handleCookiePopup();
   });
 
-  it('should load the homepage correctly', () => {
+  it('should load the homepage correctly', { tags: ['@homepage', '@smoke'] }, () => {
     cy.title().should('include', 'Lambo DRIP');
     cy.get('header').should('exist');
-  })
+  });
 
-  it('should navigate to a product page from homepage', () => {
+  it('should navigate to a product page from homepage', { tags: ['@homepage', '@navigation'] }, () => {
     cy.get('a[href*="/products/"]')
       .filter(':visible')
       .first()
@@ -21,23 +21,23 @@ describe('Navigation - LamboDrip Homepage', () => {
     cy.get('h1').should('exist'); 
   });
 
-  it('should navigate back home via the logo', () => {
+  it('should navigate back home via the logo', { tags: ['@homepage', '@navigation'] }, () => {
     cy.get('a[href="/"]').filter(':visible').first().click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
-  it('should navigate to the Shop page', () => {
+  it('should navigate to the Shop page', { tags: ['@homepage', '@navigation'] }, () => {
     cy.contains('SHOP').click({ force: true });
     cy.url().should('include', 'collections/all');
   });
 
-  it('should navigate to Terms or FAQ from footer', () => {
+  it('should navigate to Terms or FAQ from footer', { tags: ['@homepage', '@navigation', '@footer'] }, () => {
     cy.scrollTo('bottom');
     cy.contains(/faq|terms/i).first().click({ force: true });
     cy.url().should('include', '/pages'); 
   });
 
-  it('should verify all visible header links are valid (internal only)', () => {
+  it('should verify all visible header links are valid (internal only)', { tags: ['@homepage', '@links', '@validation'] }, () => {
     cy.get('header a:visible').each(link => {
       const href = link.prop('href');
       
@@ -52,29 +52,26 @@ describe('Navigation - LamboDrip Homepage', () => {
     });
   });
 
-  it('should update localization and currency when a different country is selected', () => {
-    // Cibler uniquement le premier bouton de localisation visible.
+  it('should update localization and currency when a different country is selected', { tags: ['@homepage', '@localization'] }, () => {
     cy.get('button.disclosure__button.localization-selector')
       .filter(':visible')
       .first()
       .click({ force: true });
-      
-    // Vérifier que le menu déroulant apparaît.
+
     cy.get('div.disclosure__list-wrapper.country-selector', { timeout: 4000 })
       .should('be.visible');
 
-    // Sélectionner "Hong Kong SAR" dans la liste.
     cy.contains('a.disclosure__link', 'Hong Kong SAR').click({ force: true });
-    
-    // Vérifier que le bouton de localisation se met à jour avec le pays et la devise "HKD".
+
     cy.get('button.disclosure__button.localization-selector')
       .should('contain', 'Hong Kong SAR')
       .and('contain', 'HKD');
   });
 
-  it('should open the mobile menu if present', () => {
+  it('should open the mobile menu if present', { tags: ['@homepage', '@responsive', '@mobile'] }, () => {
     cy.viewport('iphone-x');
     cy.get('summary[aria-controls="menu-drawer"]').should('be.visible').click();
     cy.get('#menu-drawer', { timeout: 5000 }).should('be.visible');
   });
+
 });

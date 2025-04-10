@@ -55,7 +55,7 @@ And because when foreplay is good, you don’t even need a release note. 😉
   *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
   → [Homepage Tests Readme](cypress/e2e/Homepage/README.md)
   - **Cart**  
-  *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the Cart.*  
+  *A test suite covering functionality, performance, security, accessibility, and UI behaviors related to the Cart feature on the LamboDrip store.*
   → [Cart Tests Readme](cypress/e2e/Cart/README.md)
   
 - **⚙️ CI/CD Integration (GitHub Actions)** | I've integrated basic CI with GitHub Actions so that all Cypress tests are triggered automatically on each push to the main branch |
