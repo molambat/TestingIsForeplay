@@ -211,6 +211,7 @@ describe('Homepage Perf', () => {
           'monorail-edge.shopifysvc.com',
           'cdn.shopify.com',
           'fonts.shopifycdn.com',
+          'shopifycloud.com',
           'fonts.googleapis.com'
         ];
   

@@ -73,7 +73,9 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
     cy.reload();
-    waitUntilProductReallyInCart();
+    waitForCartItems();
+    cy.get('tr.cart-item').should('exist').and('be.visible');
+    cy.get('cart-remove-button a.button--tertiary').should('be.visible');
     cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).first().click({ force: true });
     cy.wait(500);
     cy.contains(/your cart is empty/i, { timeout: 10000 }).should('exist');
@@ -88,6 +90,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
     waitForCartItems();
+    cy.wait(500);
+    waitForCartItems();
     waitUntilProductReallyInCart();
   
     // 🟢 Revenir sur homepage et ajouter un second produit
@@ -96,6 +100,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
   
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.wait(500);
+    waitForCartItems();
     cy.wait(500);
     waitUntilProductReallyInCart();
   
