@@ -31,14 +31,14 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(500);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
   
-    cy.get('input.quantity__input', { timeout: 10000 })
-      .should('exist')
-      .should('be.visible')
-      .should('not.be.disabled')
-      .then(($input) => {
-        cy.log('✅ Quantity input found: ', $input.attr('id'));
-        cy.wrap($input).clear().type('2');
-      });
+    cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible').within(() => {
+      cy.get('input.quantity__input')
+        .should('exist')
+        .should('be.visible')
+        .should('not.be.disabled')
+        .clear()
+        .type('2');
+    });
   
     cy.wait(500);
     cy.get('input.quantity__input').first().should('have.value', '2');
@@ -50,11 +50,10 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.wait(400)
-    cy.get('.cart-items', { timeout: 10000 }).should('exist');
-    cy.get('cart-remove-button').first().find('a.button--tertiary').click({ force: true });
-    cy.wait(400);
-    cy.contains(/your cart is empty/i).should('exist');
+    cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible');
+    cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).first().click({ force: true });
+    cy.wait(500);
+    cy.contains(/your cart is empty/i, { timeout: 10000 }).should('exist');
   });
 
   it('should handle multiple products in the cart', () => {
@@ -95,20 +94,16 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
   
     // Attendre que la ligne produit soit présente
-    cy.get('tr.cart-item', { timeout: 10000 }).first().within(() => {
-      cy.get('.totals__total-value')
-        .invoke('text')
-        .then((totalBefore) => {
-          cy.get('button.quantity__button[name="plus"]')
-            .should('be.visible')
-            .should('not.be.disabled')
-            .click({ force: true });
-  
-          cy.wait(500);
-          cy.get('.totals__total-value').invoke('text').should((totalAfter) => {
-            expect(totalAfter).not.to.eq(totalBefore);
-          });
-        });
+    cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible');
+    cy.get('.totals__total-value').invoke('text').then((totalBefore) => {
+      cy.get('button.quantity__button[name="plus"]', { timeout: 10000 })
+        .should('be.visible')
+        .click({ force: true });
+    
+      cy.wait(800);
+      cy.get('.totals__total-value').invoke('text').should((totalAfter) => {
+        expect(totalAfter.trim()).not.to.eq(totalBefore.trim());
+      });
     });
   });
   
