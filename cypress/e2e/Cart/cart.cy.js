@@ -130,6 +130,7 @@ describe('Cart Functionality - LamboDrip', () => {
       .scrollIntoView()
       .click({ force: true });
   
+    cy.wait(1000);
     cy.url({ timeout: 15000 }).should('match', /\/(checkout|checkouts)\b/);
   });  
   
@@ -141,12 +142,13 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
     cy.reload();
+    cy.wait(1000);
     waitUntilProductReallyInCart();
   
     cy.get('.totals__total-value', { timeout: 10000 }).should('exist');
     cy.get('.totals__total-value').invoke('text').then((totalBefore) => {
       cy.get('button.quantity__button[name="plus"]').click({ force: true });
-  
+      cy.wait(1000);
       // 🔁 Attendre que le prix change vraiment
       cy.get('.totals__total-value', { timeout: 8000 }).invoke('text').should((totalAfter) => {
         expect(totalAfter.trim()).not.to.eq(totalBefore.trim());

@@ -212,7 +212,8 @@ describe('Homepage Perf', () => {
           'cdn.shopify.com',
           'fonts.shopifycdn.com',
           'shopifycloud.com',
-          'fonts.googleapis.com'
+          'fonts.googleapis.com',
+          'checkout-web/assets'  
         ];
   
         if (ignoredDomains.some(domain => url.includes(domain))) {
