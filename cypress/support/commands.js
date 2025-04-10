@@ -26,7 +26,7 @@
 Cypress.Commands.add('handleCookiePopup', () => {
   cy.get('body').then(($body) => {
     if ($body.text().includes('We value your privacy')) {
-      cy.contains('Accept', { timeout: 10000 }).click({ force: true });
+      cy.contains('Accept', { timeout: 100 }).click({ force: true });
 
       // attendre un tout petit peu, sans bloquer le test
       cy.wait(500);
