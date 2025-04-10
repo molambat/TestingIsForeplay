@@ -48,7 +48,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('input.quantity__input').first().should('have.value', '2');
   });
   
-  it.only('should allow removing a product from the cart', () => {
+  it('should allow removing a product from the cart', () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(400);
     cy.get('button[name="add"]').should('exist').click({ force: true });
