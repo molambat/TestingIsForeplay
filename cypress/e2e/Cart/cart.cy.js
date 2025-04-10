@@ -73,6 +73,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(500);
     cy.reload();
+    cy.wait(500);
     waitForCartItems();
     cy.get('tr.cart-item').should('exist').and('be.visible');
     cy.get('cart-remove-button a.button--tertiary').should('be.visible');
@@ -114,11 +115,12 @@ describe('Cart Functionality - LamboDrip', () => {
   it('should go to checkout from the cart', { tags: ['@cart', '@checkout', '@critical'] }, () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.get('button[name="add"]').should('exist').click({ force: true });
-    cy.wait(1000); // laisse Shopify traiter l'ajout
+    cy.wait(1000);
   
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.wait(1000);
     waitForCartItems();
-  
+    cy.wait(1000);
     // 🔍 Attendre produit
     cy.get('tr.cart-item', { timeout: 15000 }).should('exist').and('be.visible');
   
