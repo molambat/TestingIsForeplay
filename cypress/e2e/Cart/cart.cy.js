@@ -3,14 +3,7 @@ describe('Cart Functionality - LamboDrip', () => {
   Cypress.on('uncaught:exception', () => false);
 
   const waitForCartToLoad = () => {
-    cy.get('body').then(($body) => {
-      if ($body.find('.cart-items').length) {
-        return;
-      } else {
-        cy.wait(500);
-        waitForCartToLoad();
-      }
-    });
+    cy.get('.cart-items', { timeout: 10000 }).should('exist');
   };
 
   beforeEach(() => {
