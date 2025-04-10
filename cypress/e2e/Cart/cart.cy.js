@@ -47,11 +47,18 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
-    cy.get('input[id="Quantity-1"]').clear().type('2');
+  
+    cy.get('input[id="Quantity-1"]', { timeout: 10000 })
+      .should('exist')
+      .and('not.be.disabled')
+      .clear()
+      .type('2');
+  
     cy.focused().trigger('keydown', { keyCode: 9, which: 9 });
     cy.wait(400);
     cy.get('input.quantity__input').first().should('have.value', '2');
   });
+  
 
   it('should allow removing a product from the cart', () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
