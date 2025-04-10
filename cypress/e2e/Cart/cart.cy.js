@@ -10,6 +10,7 @@ describe('Cart Functionality - LamboDrip', () => {
 
   it('should show the cart as empty when nothing is added', () => {
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
   });
 
@@ -19,6 +20,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
+    cy.wait(400);
     cy.contains('Estimated total').should('exist');
   });
 
@@ -27,7 +29,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    
+    cy.wait(400);
     cy.get('.cart-items', { timeout: 10000 }).should('exist');
     cy.get('input.quantity__input', { timeout: 10000 }).first().clear().type('2');
     cy.focused().trigger('keydown', { keyCode: 9, which: 9 }); // tab pour "trigger" une maj
@@ -37,10 +39,11 @@ describe('Cart Functionality - LamboDrip', () => {
 
   it('should allow removing a product from the cart', () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
-    cy.wait(200);
+    cy.wait(400);
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`); 
+    cy.wait(400);
     cy.get('cart-remove-button[id="Remove-1"]').click({ force: true });
     cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
@@ -57,7 +60,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    
+    cy.wait(400);
     cy.get('tr.cart-item').then(($rows) => {
       expect($rows.length).to.be.at.least(2);
     });
