@@ -43,7 +43,8 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`); 
     cy.wait(400);
-    cy.get('cart-remove-button[id="Remove-1"]').click({ force: true });
+    cy.get('.cart-items', { timeout: 10000 }).should('exist');
+    cy.get('cart-remove-button').first().find('a.button--tertiary').click({ force: true });
     cy.wait(400);
     cy.contains(/your cart is empty/i).should('exist');
   });
@@ -60,6 +61,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     cy.wait(400);
+    cy.get('.cart-items', { timeout: 10000 }).should('exist');
     cy.get('tr.cart-item').then(($rows) => {
       expect($rows.length).to.be.at.least(2);
     });
@@ -86,7 +88,7 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('.totals__total-value').then(($totalBefore) => {
       const totalBefore = $totalBefore.text();
   
-      cy.get('button.quantity__button[name="plus"]').click();
+      cy.get('button.quantity__button[name="plus"]', { timeout: 10000 }).first().click({ force: true });
       cy.wait(400);
       cy.get('.totals__total-value').should(($totalAfter) => {
         expect($totalAfter.text()).not.to.eq(totalBefore);
