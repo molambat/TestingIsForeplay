@@ -3,7 +3,7 @@ name: Run Cypress Tests
 on:
   push:
     branches:
-      - main  # ou 'master', selon ta branche par défaut
+      - main  # ou master selon ta branche par défaut
 
 jobs:
   cypress-run:
@@ -21,11 +21,11 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=false
+        run: npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
 
       - name: Upload Test Report
         if: always()
-        uses: actions/upload-artifact@v3@cfd153b5e1bb4e5a5bfa2a7c62d2c3c974f0fcee
+        uses: actions/upload-artifact@cfd153b5e1bb4e5a5bfa2a7c62d2c3c974f0fcee
         with:
           name: cypress-report
           path: cypress/reports/
