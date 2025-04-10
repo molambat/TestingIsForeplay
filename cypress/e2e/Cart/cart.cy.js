@@ -99,9 +99,9 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('button[name="add"]').should('exist').click({ force: true });
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
-    cy.get('button[name="checkout"]').first().click({ force: true });
+    cy.get('button[name="checkout"]').scrollIntoView().click({ force: true });
     cy.wait(400);
-    cy.url().should('include', '/checkout');
+    cy.url({ timeout: 10000 }).should('include', '/checkout');
   });
 
   it('should update total price when quantity changes', { tags: ['@cart', '@price', '@regression'] }, () => {

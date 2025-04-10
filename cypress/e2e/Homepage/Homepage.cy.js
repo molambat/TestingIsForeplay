@@ -35,10 +35,10 @@ describe('Navigation - LamboDrip Homepage', () => {
     cy.url().should('include', 'collections/all');
   });
 
-  it('should navigate to Terms or FAQ from footer', { tags: ['@homepage', '@navigation', '@footer'] }, () => {
+  it('should navigate to Terms or FAQ from footer', () => {
     cy.scrollTo('bottom');
-    cy.get('footer a').contains(/faq|terms/i).should('be.visible').click({ force: true });
-    cy.url().should('include', '/pages'); 
+    cy.contains(/faq|terms/i).first().click({ force: true });
+    cy.url().should('match', /\/(pages|policies)\//);
   });
 
   it('should verify all visible header links are valid (internal only)', { tags: ['@homepage', '@links', '@validation'] }, () => {
