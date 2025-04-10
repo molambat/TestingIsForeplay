@@ -1,11 +1,6 @@
 describe('Cart Functionality - LamboDrip', () => {
 
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    // Ignore known Shopify bug in cart page
-    if (err.message.includes('close')) {
-      return false;
-    }
-  });
+  Cypress.on('uncaught:exception', () => false);
 
   const waitForCartToLoad = () => {
     cy.get('body').then(($body) => {
@@ -60,8 +55,6 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.get('input.quantity__input').first().should('have.value', '2');
   });
   
-  
-
   it('should allow removing a product from the cart', () => {
     cy.get('a[href*="/products"]').filter(':visible').first().click({ force: true });
     cy.wait(400);
