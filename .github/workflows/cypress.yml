@@ -3,17 +3,17 @@ name: Run Cypress Tests
 on:
   push:
     branches:
-      - main  # ou master selon ta branche par défaut
+      - main  # ou 'master', selon votre branche par défaut
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -25,7 +25,7 @@ jobs:
 
       - name: Upload Test Report
         if: always()
-        uses: actions/upload-artifact@cfd153b5e1bb4e5a5bfa2a7c62d2c3c974f0fcee
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-report
           path: cypress/reports/
