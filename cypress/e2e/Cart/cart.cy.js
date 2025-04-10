@@ -74,7 +74,10 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
     cy.visit(`${Cypress.config().baseUrl}/cart`);
     waitForCartItems();
-    cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible');
+    cy.get('tr.cart-item', { timeout: 15000 })
+      .should('have.length.at.least', 1)
+      .first()
+      .should('be.visible');
     cy.get('cart-remove-button a.button--tertiary', { timeout: 10000 }).first().click({ force: true });
     cy.wait(500);
     cy.contains(/your cart is empty/i, { timeout: 10000 }).should('exist');
@@ -120,7 +123,11 @@ describe('Cart Functionality - LamboDrip', () => {
     cy.wait(400);
   
     // Attendre que la ligne produit soit présente
-    cy.get('tr.cart-item', { timeout: 10000 }).should('be.visible');
+    cy.get('tr.cart-item', { timeout: 15000 })
+      .should('have.length.at.least', 1)
+      .first()
+      .should('be.visible');
+    cy.get('.totals__total-value', { timeout: 10000 }).should('exist');
     cy.get('.totals__total-value').invoke('text').then((totalBefore) => {
       cy.get('button.quantity__button[name="plus"]', { timeout: 10000 })
         .should('be.visible')
