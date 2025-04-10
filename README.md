@@ -53,7 +53,7 @@ And because when foreplay is good, you don’t even need a release note. 😉
 
 - **Homepage**  
   *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
-  → [Homepage Tests Readme](https://github.com/molambat/TestingIsForeplay/tree/main/cypress/e2e/Homepage/Readme.md)
+  → [Homepage Tests Readme](cypress/e2e/Homepage/README.md)
 
 ---
 ## 📎 Attachments
