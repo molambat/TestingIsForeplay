@@ -13,8 +13,8 @@ test.describe('UI - LamboDrip Homepage', () => {
   });
 
   test('should display the main banner', async ({ page }) => {
-    const banner = page.locator('section[class*="banner"], .hero, .main-banner').first();
-    await expect(banner).toBeVisible();
+    const banner = page.locator('[id^="Banner-template"][class*="banner"]');
+    await expect(banner).toBeVisible({ timeout: 8000 });
   });
 
   test('should show the navigation menu', async ({ page }) => {
