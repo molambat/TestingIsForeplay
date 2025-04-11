@@ -2,119 +2,122 @@
 
 ![teasing gif here](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHFyZnBwZnk3YzV2NGQ5dDh4dTZocHRnYTU0dHRnY3hod3gyejZuNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ybuKc5xTF2gC5na/giphy.gif)
 
-**Cypress-driven QA, polished by passion. Nothing flaky allowed — unless it's intentional. 😉**
+**Nothing flaky allowed — unless it's intentional. 😉**
 
-Welcome to my personal automation playground — where clean code meets seductive precision.
+Welcome to my personal automation playground  
 > Warning: This repo contains explicit attention to detail and intense QA sessions.
 
 ---
 
 ## 🔥 Let’s get intimate (with the code)
 
-This repo is a curated playground for:
+This repo is crafted to showcase:
 
-- 🔬 Testing real-world app flows (Selenium? Cypress? Doesn’t matter. I know how to handle any stack… deeply)
-- 🧠 Illustrating my **manual QA approach** (test cases, bug reports)
-- 📈 **CI/CD integration** setups
-
-Everything here is crafted from experience in real missions — clean, readable, and focused on what really matters: **reliable software**.
-
----
-
-## 💚 You’ll find:
-
-- ✅ **Cypress e2e tests** with best practices 
-- 📝 **Manual test cases** (test ID, steps, expected results,...)
-- 🐞 **Bug templates** & reporting structure
-- ⏱️ Planned: CI examples using GitHub Actions
-- 👀 No bloat, no overengineering — just QA that works.
+- 🔬 Real-world QA flows, tested with **Cypress** and **Playwright**
+- 🧠 **Manual QA approach** with clean test case writing & bug templates
+- 🛠️ **CI/CD pipeline integration** via GitHub Actions
+- 💅 Code that’s clean, readable, and unapologetically confident
 
 ---
 
-## 💡 Why this name?
+## 💚 What’s inside?
 
-Because **good QA is the art of anticipation**:   
-You never go to production without a little excitement first. 
-And because when foreplay is good, you don’t even need a release note. 😉
-
----
-## 🧪 Stack & Tools (current & planned)
-
-| Category | Tools |
-|---|---|
-| ✅ Main focus | Cypress |
-| 🧠 Manual QA | Test case templates (Markdown), Bug reporting |
-| ⏳ Coming soon | GitHub Actions (CI), test dashboards |
-| ⛔ Not used (yet) | TypeScript, Postman, Selenium, RobotFramework |
+- ✅ **Cypress and Playwright e2e test suites**
+- 📝 **Manual test cases** & execution reports
+- 🐞 **Bug reporting templates**
+- ⚙️ **GitHub Actions** already running all tests on push
+- 🔐 **Clean structure**, no bloat — just effective QA
 
 ---
 
-## 📁 Cypress
+## 💡 Why “TestingIsForeplay”?
 
-- **Homepage**  
-  *A brief overview covering performance, navigation, security, accessibility, and UI aspects specific to the homepage.*  
-  → [Homepage Tests Readme](cypress/e2e/Homepage/README.md)
-  - **Cart**  
-  *A test suite covering functionality, performance, security, accessibility, and UI behaviors related to the Cart feature on the LamboDrip store.*
-  → [Cart Tests Readme](cypress/e2e/Cart/README.md)
-  
-- **⚙️ CI/CD Integration (GitHub Actions)** | I've integrated basic CI with GitHub Actions so that all Cypress tests are triggered automatically on each push to the main branch |
+Because **good QA is anticipation**.  
+You don't go to production without some *build-up*.  
+And if foreplay is good… well, sometimes you don’t even need a release note. 😉
+
+---
+
+## 🧪 Stack & Tools
+
+| Category           | Tools                                                             |
+|--------------------|-------------------------------------------------------------------|
+| ✅ Automated tests  | Cypress (v14+),Playwright (v1.43+) GitHub Actions CI             |
+| 🧠 Manual QA        | Markdown-based test cases, Defect templates                      |
+| 📦 Project docs     | Master Test Plan, Execution Tracker, QA best practices           |
+| 🔜 What’s next?     | SPostman (API tests), SoapUI (SOAP/XML), Load testing            |
+
+---
+
+## 📁 Cypress Tests
+
+### 📦 Cart Tests (LamboDrip Store)
+- Covers: quantity updates, removals, checkout flow, price calculations
+→ [Cart README](cypress/e2e/Cart/README.md)
+
+### 🏠 Homepage Tests
+- Focus on: performance, UI load, accessibility, UX flows
+→ [Homepage README](cypress/e2e/Homepage/README.md)
+
+### ⚙️ CI/CD (GitHub Actions)
+- All tests run automatically on push to `main`  
 ![Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/cypress.yml/badge.svg)
 
 ---
-## 📎 Attachments
 
-🧠 QA Tips & Best Practices
-→ [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)
+## 🎭 Playwright Tests
 
-👉 Master Test Plan
-→ [Master Test Plan](./Docs/MasterTestPlan/Master_test_Plan.md)
+### 🏠 Homepage Tests
+- Mirrors Cypress coverage: performance, security, UI checks, accessibility, UX flows  
+→ [Homepage Playwright Tests](Playwright/tests/Homepage)
+- Axe integration for a11y audits  
+- Clean structure: `/tests/Homepage/` mirrors Cypress folder layout  
+- HTML report: `npx playwright show-report`
 
-👉 TestExecutionTracker
-→ [Test Execution Tracker](./Docs/Test%20Execution%20Tracker/Test_Execution_Tracker.md)
-
-👉 Defect Management Template
-→ [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)
-
-👉 TNR Checklist
-→ [TNR Checklist Template](./Docs/TNR%20Checklist/TNR_Checklist.md)
-
-🎯 [Why Company Needs QA? – Slides (PPT & PDF)](./Docs/Why_QA)
+### ⚙️ CI/CD (GitHub Actions)
+- All tests run automatically on push to `main`  
+![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
 
 ---
 
-## 🤖 Coming next...
+## 📎 QA Docs & Assets
 
-- 📊 Basic CI integration with GitHub Actions
-- 📁 Realistic manual test plans (BDD-style)
-- 📱 Tips for QA when you test in a hybrid team
-
----
-
-## 👩‍💻 About me
-
-I'm a QA Consultant with 6+ years in the field (5 in development, 1+ in QA).
-I don’t just automate — I orchestrate seductive flows that beg for execution.
-I build test strategies, set up automation from scratch, and turn messy flows into predictable systems.
-I build QA pipelines that purr when triggered, and leave no component untouched.
-I support strong governance — and even stronger execution
-
-✨ Fun fact: I also create content on the side — because being serious doesn’t mean being boring.
-QA by day, something spicier by night... 
-Yes, I read specs — but I also know how to leave the right ports open. 
-And yes — my softest back-end passes all penetration tests. Thoroughly 🍑✨
-[See all my sides here → linkr.bio/m.lambat](https://linkr.bio/m.lambat)
+- 🧠 [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  
+- 🗂️ [Master Test Plan](./Docs/MasterTestPlan/Master_test_Plan.md)  
+- ✅ [Test Execution Tracker](./Docs/Test%20Execution%20Tracker/Test_Execution_Tracker.md)  
+- 🐛 [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)  
+- 🚨 [TNR Checklist](./Docs/TNR%20Checklist/TNR_Checklist.md)  
+- 🎯 [Why QA Matters (PPT & PDF)](./Docs/Why_QA)  
 
 ---
 
-## 📫 Contact
+## 🔮 Next Chapter?
 
-Want to collaborate on a QA mission (remote-only)?  
-Reach out via [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) or [Malt](https://www.malt.fr/profile/mohammadlambat).
+> Cypress done. 
+> Playwright done.
+
+- 📬 Postman: for REST API flows  
+- 🧼 SoapUI: for legacy SOAP/XML backend validation  
+- 💣 Load testing coming? Why not. If it can break, I’ll find how.
 
 ---
 
-> Even when you rerun me, I never complain. I just open wider logs, expose deeper stacks, and wait for you to call me… valid.
+## 👩‍💻 About Me
+
+I'm a QA Consultant with 6+ years of experience.  
+I don’t just automate tests — I build flows that seduce bugs into showing themselves.  
+From strategy to execution, CI to coverage, UI to API — I test it all. With style.
+
+✨ Also: I create spicy QA content on the side. Because serious doesn’t mean boring.
+
+・ [GitHub](https://github.com/molambat/https://github.com/molambat/QAbyDayNSFWbyNight) 
+・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) 
+・ [Malt](https://www.malt.fr/profile/mohammadlambat)
+
+---
+
+> I don’t flake under pressure.  
+> I retry until I pass — and I always leave logs for you to replay it.
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![QA Love](https://img.shields.io/badge/Flaky%20tests-not%20welcome-red)
