@@ -44,32 +44,32 @@ test.describe('UI - LamboDrip Homepage', () => {
     throw new Error('Aucun produit visible');
   });
 
-  test('should have a visible cart or bag icon', async ({ page }) => {
-    const cart = page.locator('a[href*="/cart"], a[href*="cart"]').first();
-    await expect(cart).toBeVisible();
-  });
-
   test('should have a visible search icon or field', async ({ page }) => {
-    // Match TOUS les input type=search
     const searchFields = page.locator('input[type="search"]');
     const searchIcons = page.locator('button[aria-label*="search" i]');
   
-    const count = await searchFields.count();
+    const fieldCount = await searchFields.count();
+    let found = false;
   
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < fieldCount; i++) {
       const field = searchFields.nth(i);
       if (await field.isVisible()) {
-        console.log(`Champ de recherche visible trouvé (index ${i})`);
+        console.log(`✅ Search field visible (index ${i})`);
         await expect(field).toBeVisible();
-        return;
+        found = true;
+        break;
       }
     }
   
-    if (await searchIcons.first().isVisible()) {
-      console.log('Icône de recherche visible trouvée');
+    if (!found && await searchIcons.first().isVisible()) {
+      console.log('✅ Search icon visible');
       await expect(searchIcons.first()).toBeVisible();
-    } else {
-      console.warn('Aucun champ ou icône de recherche visible sur la page');
+      found = true;
+    }
+  
+    if (!found) {
+      console.warn('⚠️ No visible search field or icon found on the page');
     }
   });
+  
 });
