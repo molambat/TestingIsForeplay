@@ -96,9 +96,38 @@ And if foreplay is good… well, sometimes you don’t even need a release note.
 > Cypress done. 
 > Playwright done.
 
-- 📬 Postman: for REST API flows  
-- 🧼 SoapUI: for legacy SOAP/XML backend validation  
-- 💣 Load testing coming? Why not. If it can break, I’ll find how.
+✅ Tests API :
+
+ - Postman 
+ - SoapUI 
+ - Rest Assured 
+ - Supertest 
+
+🧪 Tests de performance / charge :
+
+ - k6 
+ - Locust 
+ - Apache JMeter
+
+🐛 Tests visuels (Visual Regression) :
+ 
+ - Percy 
+ - Loki 
+
+🛡️ Sécurité :
+
+ - OWASP ZAP
+ - Nikto ou Burp Suite
+
+🔄 Tests de compatibilité / devices / cloud testing :
+
+ - BrowserStack / Sauce Labs
+
+💡 Bonus tooling DevOps-friendly :
+ 
+ - Allure Reports
+ - TestRail / Xray
+ - Docker
 
 ---
 
