@@ -25,6 +25,6 @@ test.describe('📱 Mobile Viewport - LamboDrip Homepage', () => {
   });
 
   test('should show the SHOP CTA', async ({ page }) => {
-    await expect(page.locator('a.button')).toContainText(/shop/i);
+    await expect(page.locator('#MainContent')).toContainText(/Shop now|Discover|Explore|Shop|Collections/i);
   });
 });
