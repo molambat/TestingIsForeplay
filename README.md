@@ -41,14 +41,15 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ## 🧪 Stack & Tools
 
-| Category              | Tools                                                                       |
-|-----------------------|-----------------------------------------------------------------------------|
+| Category               | Tools                                                                       |
+|------------------------|-----------------------------------------------------------------------------|
 | ✅ Automated tests     | Cypress (v14+), Playwright (v1.43+), Percy                                  |
 | 🖼️ Visual Regression   | Percy (Playwright integration), supports desktop + mobile breakpoints       |
 | 🧠 Manual QA           | Markdown-based test cases, Defect templates                                 |
-| 🧼 API tests           | Postman, SoapUI                                                              |
+| 🧼 API tests           | Postman, SoapUI                                                             |
 | ⚙️ CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
 | 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure (planned)                        |
+| 📱 Responsive Testing  | Cypress Viewport, Percy Multi-Viewport snapshots                            |
 
 ---
 

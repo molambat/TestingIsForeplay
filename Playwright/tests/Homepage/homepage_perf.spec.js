@@ -5,9 +5,8 @@ test.describe('Homepage Perf', () => {
   
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.waitForTimeout(500); // Laisse le DOM se stabiliser
+    await page.waitForTimeout(500); 
 
-    // Gestion du cookie banner si présent
     const acceptBtn = await page.$('text=Accept');
     if (acceptBtn) {
       await acceptBtn.click();

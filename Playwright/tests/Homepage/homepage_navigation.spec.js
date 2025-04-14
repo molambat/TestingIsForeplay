@@ -58,8 +58,6 @@ test.describe('Navigation - LamboDrip Homepage', () => {
     await expect(page).toHaveURL(/\/collections\/all/);
   });
   
-  
-
   test('should verify all visible header links are valid (internal only)', async ({ page, request }) => {
     const links = await page.$$eval('header a[href^="/"]', els =>
       els.map(el => el.getAttribute('href')).filter((href) => typeof href === 'string')

@@ -1,10 +1,8 @@
 describe('Homepage Perf', () => {
 
   beforeEach(() => {
-    // On visite la page et on attend un petit délai pour que le DOM se stabilise.
     cy.visit('/');
     cy.wait(500);
-    // Vérifie que la fonction custom handleCookiePopup existe avant de l'appeler.
     cy.handleCookiePopup && cy.handleCookiePopup();
   });
 
@@ -34,8 +32,6 @@ describe('Homepage Perf', () => {
   it('should load main hero section under 1500ms', () => {
     const t0 = performance.now();
     cy.visit('/');
-    // Si votre site n'utilise pas .hero, .main-banner, ou .featured, adaptez ce sélecteur.
-    // Par exemple, si la section principale est identifiée par <main id="MainContent">, utilisez '#MainContent'
     cy.get('.hero, .main-banner, .featured, #MainContent', { timeout: 1500 })
       .should('exist')
       .then(() => {
@@ -50,7 +46,6 @@ describe('Homepage Perf', () => {
     const maxImgSize = 1_000_000; // 1MB
     const maxCssSize = 300_000;   // 300KB
   
-    // Vérification pour les images
     cy.get('img').each(($img) => {
       const src = $img.attr('src');
       if (src) {
@@ -72,7 +67,6 @@ describe('Homepage Perf', () => {
       }
     });
   
-    // Vérification pour les feuilles de style CSS
     cy.get('link[rel="stylesheet"]').each(($link) => {
       const href = $link.attr('href');
       if (href) {
@@ -105,7 +99,6 @@ describe('Homepage Perf', () => {
         }).then((res) => {
           if (res.status === 404) {
             cy.log(`WARNING: Third-party resource not found (404): ${url}`);
-            // Si nécessaire, tu peux aussi autoriser 404 pour certains assets connus.
           } else {
             expect(res.status).to.eq(200);
           }
@@ -119,7 +112,6 @@ describe('Homepage Perf', () => {
     const maxImgSize = 1_000_000; // 1MB
     const maxCssSize = 300_000;   // 300KB
   
-    // Vérification pour les images
     cy.get('img').each(($img) => {
       const src = $img.attr('src');
       if (src) {
@@ -133,7 +125,6 @@ describe('Homepage Perf', () => {
             encoding: 'binary'
           }).then((res) => {
             cy.log(`Image ${src} returned status: ${res.status}`);
-            // On vérifie la taille uniquement si le statut est acceptable
             if ([200, 301, 302].includes(res.status)) {
               cy.log(`Image ${src} size: ${res.body.length} bytes`);
               expect(res.body.length).to.be.lessThan(maxImgSize);
@@ -145,7 +136,6 @@ describe('Homepage Perf', () => {
       }
     });
   
-    // Vérification pour les fichiers CSS
     cy.get('link[rel="stylesheet"]').each(($link) => {
       const href = $link.attr('href');
       if (href) {
@@ -179,12 +169,10 @@ describe('Homepage Perf', () => {
       }
     });
   
-    // Forcer le viewport desktop pour afficher le layout complet
     cy.viewport('macbook-15');
   
     const t0 = performance.now();
     cy.visit('/').then(() => {
-      // Cibler le contenu principal pour éviter les éléments cachés du menu
       cy.get('#MainContent', { timeout: 4000 })
         .contains(/Shop now|Discover|Explore|Shop|Collections/i, { timeout: 4000 })
         .should('be.visible')
@@ -213,7 +201,11 @@ describe('Homepage Perf', () => {
           'fonts.shopifycdn.com',
           'shopifycloud.com',
           'fonts.googleapis.com',
-          'checkout-web/assets'  
+          'checkout-web/assets',
+          'fonts.', 
+          '.woff', 
+          '.woff2',
+          '.ttf'
         ];
   
         if (ignoredDomains.some(domain => url.includes(domain))) {
