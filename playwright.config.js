@@ -17,7 +17,7 @@ module.exports = defineConfig({
     {
       name: 'visual-tests',
       testMatch: /.*\.percy\.spec\.ts/,
-      testDir: './Percy',
+      testDir: './Playwright/tests',
     }
   ]
 });
