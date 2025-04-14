@@ -52,7 +52,9 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ---
 
-## 📁 Cypress Tests
+## 📁 Cypress Tests 
+
+![Cypress Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/cypress.yml/badge.svg)
 
 ### 🏠 Homepage Tests
 - Focus: performance, UI load, localization, accessibility
@@ -66,6 +68,8 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ## 🎭 Playwright Tests
 
+![Playwright Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/playwright.yml/badge.svg)
+
 ### 🏠 Homepage Tests
 - Mirrors Cypress: perf, security, accessibility, UX flows  
 → [Homepage Playwright](Playwright/tests/Homepage)
@@ -74,13 +78,16 @@ And when foreplay is that good… you might skip the release notes entirely. �
 - Similar coverage as Cypress, with fast execution + visual tools  
 → [Cart Playwright README](Playwright/tests/Cart/README.md)
 
-### 🖼️ Percy (Visual Regression)
+### 📸 Percy (Visual Regression)
+
+![Percy Visual Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/percy.yml/badge.svg)
+
 - Percy + Playwright setup for screenshot diff across viewports
 - Snapshots run for:
   - Homepage (Desktop 1280px / Mobile 375px)
-  - Future extensions: Cart, Footer, Menus
 - GitHub Actions triggers Percy on push  
-→ [Percy Tests](Percy/homepage.percy.spec.ts)
+→ Visual regression diff example (Mobile viewport - 375px):
+![Percy diff mobile](./docs/screenshots/percy_mobile_diff.png)
 
 📸 Example Percy Snapshot:
 ![Percy Visual Snapshot](https://percy.io/static/images/percy-icon.svg)
