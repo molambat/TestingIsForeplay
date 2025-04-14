@@ -116,39 +116,33 @@ And if foreplay is good… well, sometimes you don’t even need a release note.
 
 > Cypress done. 
 > Playwright done.
+> Postman done.
+> SoapUI done.
 
-✅ Tests API :
+🧪 Load & Performance Testing :
 
- - Postman 
- - SoapUI 
- - Rest Assured 
- - Supertest 
+ - Tools: Apache JMeter
+ - Because we love it fast — under pressure. 
 
-🧪 Tests de performance / charge :
-
- - k6 
- - Locust 
- - Apache JMeter
-
-🐛 Tests visuels (Visual Regression) :
+🖼️ Visual Regression Testing :
  
- - Percy 
- - Loki 
+ - Tools: Percy, Loki
+ - For pixel-perfect, drama-free UIs. 
 
-🛡️ Sécurité :
+🛡️ Advanced Security Scans :
 
- - OWASP ZAP
- - Nikto ou Burp Suite
+ - Tools: OWASP ZAP, Nikto, Burp Suite
+ - So your site stays clean… and safe.
 
-🔄 Tests de compatibilité / devices / cloud testing :
+🧪 Cross-browser / Device Testing
 
- - BrowserStack / Sauce Labs
+ - Tools: BrowserStack, Sauce Labs
+ - Because your UI deserves to look good everywhere.
 
-💡 Bonus tooling DevOps-friendly :
+📊 QA Reporting & Management :
  
- - Allure Reports
- - TestRail / Xray
- - Docker
+ - Tools: Allure Reports, TestRail, Xray
+ - For when you want visibility that slaps.
 
 ---
 

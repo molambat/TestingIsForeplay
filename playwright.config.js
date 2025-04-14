@@ -1,4 +1,3 @@
-// playwright.config.js
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
@@ -13,5 +12,12 @@ module.exports = defineConfig({
     video: 'retain-on-failure',
     trace: 'retain-on-failure'
   },
-  reporter: [['html'], ['list']]
+  reporter: [['html'], ['list']],
+  projects: [
+    {
+      name: 'visual-tests',
+      testMatch: /.*\.percy\.spec\.ts/,
+      testDir: './Percy',
+    }
+  ]
 });
