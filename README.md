@@ -51,13 +51,13 @@ And if foreplay is good… well, sometimes you don’t even need a release note.
 
 ## 📁 Cypress Tests
 
-### 📦 Cart Tests (LamboDrip Store)
-- Covers: quantity updates, removals, checkout flow, price calculations
-→ [Cart README](cypress/e2e/Cart/README.md)
-
 ### 🏠 Homepage Tests
 - Focus on: performance, UI load, accessibility, UX flows
 → [Homepage README](cypress/e2e/Homepage/README.md)
+
+### 📦 Cart Tests (LamboDrip Store)
+- Covers: quantity updates, removals, checkout flow, price calculations
+→ [Cart README](cypress/e2e/Cart/README.md)
 
 ### ⚙️ CI/CD (GitHub Actions)
 - All tests run automatically on push to `main`  
@@ -74,12 +74,33 @@ And if foreplay is good… well, sometimes you don’t even need a release note.
 - Clean structure: `/tests/Homepage/` mirrors Cypress folder layout  
 - HTML report: `npx playwright show-report`
 
+### 🛒 Cart Tests (LamboDrip Store)
+- Focus on: cart functionality, performance, accessibility, and basic security checks  
+→ [Cart Playwright README](Playwright/tests/Cart/README.md)
+- Includes: quantity updates, removal, checkout redirection, asset load checks  
+- Runs axe checks on cart main section and footer  
+- Monitors load speed for DOM & key CTA rendering
+
 ### ⚙️ CI/CD (GitHub Actions)
 - All tests run automatically on push to `main`  
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
 
 ---
 
+### 📬 Postman API Tests
+- Covers: add to cart, retrieve cart contents, simulate checkout flow
+- Includes tests for status codes and cart item count
+→ [Postman Collection](postman/LamboDrip%20API%20Tests.postman_collection.json)
+
+---
+
+### 🧼 SoapUI API Checks
+- Covers: basic GET call to cart endpoint (`/cart.js`)
+- Validates response structure, status `200`, and response time
+- Organized as: Project > TestSuite > TestCase > TestStep
+→ [SoapUI Project](SoapUI/LamboDrip_API_Checks-soapui-project.xml)
+
+---
 ## 📎 QA Docs & Assets
 
 - 🧠 [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  

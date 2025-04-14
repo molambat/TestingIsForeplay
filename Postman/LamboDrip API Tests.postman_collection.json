@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "139db4e8-7a8f-491a-951f-b8b57d5f7465",
+		"name": "LamboDrip API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32274183"
+	},
+	"item": [
+		{
+			"name": "Get Product List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://lambodrip.com/collections/all",
+					"protocol": "https",
+					"host": [
+						"lambodrip",
+						"com"
+					],
+					"path": [
+						"collections",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "55080985395577",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://lambodrip.com/cart/add.js",
+					"protocol": "https",
+					"host": [
+						"lambodrip",
+						"com"
+					],
+					"path": [
+						"cart",
+						"add.js"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Cart Contents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Cart returns valid response\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"  const jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.items.length).to.be.above(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://lambodrip.com/cart.js",
+					"protocol": "https",
+					"host": [
+						"lambodrip",
+						"com"
+					],
+					"path": [
+						"cart.js"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
