@@ -5,7 +5,7 @@
 **Nothing flaky allowed — unless it's intentional. 😉**
 
 Welcome to my personal automation playground  
-> Warning: This repo contains explicit attention to detail and intense QA sessions.
+> ⚠️ This repo contains explicit attention to detail and intense QA sessions.
 
 ---
 
@@ -13,7 +13,7 @@ Welcome to my personal automation playground
 
 This repo is crafted to showcase:
 
-- 🔬 Real-world QA flows, tested with **Cypress** and **Playwright**
+- 🔬 Real-world QA flows, tested with **Cypress**, **Playwright** & **Percy**
 - 🧠 **Manual QA approach** with clean test case writing & bug templates
 - 🛠️ **CI/CD pipeline integration** via GitHub Actions
 - 💅 Code that’s clean, readable, and unapologetically confident
@@ -22,10 +22,11 @@ This repo is crafted to showcase:
 
 ## 💚 What’s inside?
 
-- ✅ **Cypress and Playwright e2e test suites**
+- ✅ **Cypress & Playwright e2e test suites**
+- 🖼️ **Visual regression testing with Percy**
 - 📝 **Manual test cases** & execution reports
 - 🐞 **Bug reporting templates**
-- ⚙️ **GitHub Actions** already running all tests on push
+- ⚙️ **GitHub Actions** already wired for CI on push
 - 🔐 **Clean structure**, no bloat — just effective QA
 
 ---
@@ -33,74 +34,71 @@ This repo is crafted to showcase:
 ## 💡 Why “TestingIsForeplay”?
 
 Because **good QA is anticipation**.  
-You don't go to production without some *build-up*.  
-And if foreplay is good… well, sometimes you don’t even need a release note. 😉
+You don’t go to production without a bit of build-up.  
+And when foreplay is that good… you might skip the release notes entirely. 😉
 
 ---
 
 ## 🧪 Stack & Tools
 
-| Category           | Tools                                                             |
-|--------------------|-------------------------------------------------------------------|
-| ✅ Automated tests  | Cypress (v14+),Playwright (v1.43+) GitHub Actions CI             |
-| 🧠 Manual QA        | Markdown-based test cases, Defect templates                      |
-| 📦 Project docs     | Master Test Plan, Execution Tracker, QA best practices           |
-| 🔜 What’s next?     | SPostman (API tests), SoapUI (SOAP/XML), Load testing            |
+| Category              | Tools                                                                       |
+|-----------------------|-----------------------------------------------------------------------------|
+| ✅ Automated tests     | Cypress (v14+), Playwright (v1.43+), Percy                                  |
+| 🖼️ Visual Regression   | Percy (Playwright integration), supports desktop + mobile breakpoints       |
+| 🧠 Manual QA           | Markdown-based test cases, Defect templates                                 |
+| 🧼 API tests           | Postman, SoapUI                                                              |
+| ⚙️ CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
+| 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure (planned)                        |
 
 ---
 
 ## 📁 Cypress Tests
 
 ### 🏠 Homepage Tests
-- Focus on: performance, UI load, accessibility, UX flows
+- Focus: performance, UI load, localization, accessibility
 → [Homepage README](cypress/e2e/Homepage/README.md)
 
-### 📦 Cart Tests (LamboDrip Store)
-- Covers: quantity updates, removals, checkout flow, price calculations
+### 🛒 Cart Tests (LamboDrip Store)
+- Covers: quantity updates, price calculation, removal, checkout redirects
 → [Cart README](cypress/e2e/Cart/README.md)
-
-### ⚙️ CI/CD (GitHub Actions)
-- All tests run automatically on push to `main`  
-![Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/cypress.yml/badge.svg)
 
 ---
 
 ## 🎭 Playwright Tests
 
 ### 🏠 Homepage Tests
-- Mirrors Cypress coverage: performance, security, UI checks, accessibility, UX flows  
-→ [Homepage Playwright Tests](Playwright/tests/Homepage)
-- Axe integration for a11y audits  
-- Clean structure: `/tests/Homepage/` mirrors Cypress folder layout  
-- HTML report: `npx playwright show-report`
+- Mirrors Cypress: perf, security, accessibility, UX flows  
+→ [Homepage Playwright](Playwright/tests/Homepage)
 
-### 🛒 Cart Tests (LamboDrip Store)
-- Focus on: cart functionality, performance, accessibility, and basic security checks  
+### 🛒 Cart Tests
+- Similar coverage as Cypress, with fast execution + visual tools  
 → [Cart Playwright README](Playwright/tests/Cart/README.md)
-- Includes: quantity updates, removal, checkout redirection, asset load checks  
-- Runs axe checks on cart main section and footer  
-- Monitors load speed for DOM & key CTA rendering
 
-### ⚙️ CI/CD (GitHub Actions)
-- All tests run automatically on push to `main`  
-![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
+### 🖼️ Percy (Visual Regression)
+- Percy + Playwright setup for screenshot diff across viewports
+- Snapshots run for:
+  - Homepage (Desktop 1280px / Mobile 375px)
+  - Future extensions: Cart, Footer, Menus
+- GitHub Actions triggers Percy on push  
+→ [Percy Tests](Percy/homepage.percy.spec.ts)
+
+📸 Example Percy Snapshot:
+![Percy Visual Snapshot](https://percy.io/static/images/percy-icon.svg)
 
 ---
 
-### 📬 Postman API Tests
-- Covers: add to cart, retrieve cart contents, simulate checkout flow
-- Includes tests for status codes and cart item count
+## 📬 API Tests
+
+### Postman
+- Covers: cart actions, API validations
 → [Postman Collection](postman/LamboDrip%20API%20Tests.postman_collection.json)
 
----
-
-### 🧼 SoapUI API Checks
-- Covers: basic GET call to cart endpoint (`/cart.js`)
-- Validates response structure, status `200`, and response time
-- Organized as: Project > TestSuite > TestCase > TestStep
+### SoapUI
+- SOAP/XML check for `/cart.js` endpoint, structure + timing
 → [SoapUI Project](SoapUI/LamboDrip_API_Checks-soapui-project.xml)
 
 ---
+
 ## 📎 QA Docs & Assets
 
 - 🧠 [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  
@@ -114,55 +112,41 @@ And if foreplay is good… well, sometimes you don’t even need a release note.
 
 ## 🔮 Next Chapter?
 
-> Cypress done. 
-> Playwright done.
-> Postman done.
-> SoapUI done.
+✅ Done:
 
-🧪 Load & Performance Testing :
+- Cypress e2e 🟢  
+- Playwright e2e 🟢  
+- Postman & SoapUI 🟢  
+- Percy visual testing 🟢
 
- - Tools: Apache JMeter
- - Because we love it fast — under pressure. 
+🧪 Still cooking:
 
-🖼️ Visual Regression Testing :
- 
- - Tools: Percy, Loki
- - For pixel-perfect, drama-free UIs. 
-
-🛡️ Advanced Security Scans :
-
- - Tools: OWASP ZAP, Nikto, Burp Suite
- - So your site stays clean… and safe.
-
-🧪 Cross-browser / Device Testing
-
- - Tools: BrowserStack, Sauce Labs
- - Because your UI deserves to look good everywhere.
-
-📊 QA Reporting & Management :
- 
- - Tools: Allure Reports, TestRail, Xray
- - For when you want visibility that slaps.
+- **JMeter / k6** → Load testing, because we love it fast under pressure  
+- **OWASP ZAP** → For basic automated security scans  
+- **BrowserStack / Sauce Labs** → Device/browser cloud testing  
+- **Allure / Xray** → Reporting that slaps  
+- **Dockerfile** → Spin the whole suite locally, one command
 
 ---
 
 ## 👩‍💻 About Me
 
-I'm a QA Consultant with 6+ years of experience.  
-I don’t just automate tests — I build flows that seduce bugs into showing themselves.  
-From strategy to execution, CI to coverage, UI to API — I test it all. With style.
+QA Consultant with 6+ years of experience.  
+I don’t just automate — I craft seductive test flows that bugs can’t resist.  
+From CI/CD to UI/API, performance to pixel-perfection — I test it all. With style.
 
-✨ Also: I create spicy QA content on the side. Because serious doesn’t mean boring.
+✨ Bonus: I make spicy QA content because testing ≠ boring.
 
-・ [GitHub](https://github.com/molambat/https://github.com/molambat/QAbyDayNSFWbyNight) 
-・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/) 
+・ [GitHub](https://github.com/molambat/QAbyDayNSFWbyNight)  
+・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/)  
 ・ [Malt](https://www.malt.fr/profile/mohammadlambat)
 
 ---
 
 > I don’t flake under pressure.  
-> I retry until I pass — and I always leave logs for you to replay it.
+> I retry until I pass — and always leave logs for you to replay it.
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
-![QA Love](https://img.shields.io/badge/Flaky%20tests-not%20welcome-red)
+![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
+![Percy](https://img.shields.io/badge/Pixel%20Perfect-With%20Percy-7b46f6?logo=percy&logoColor=white)
 ![NSFW-Safe](https://img.shields.io/badge/NSFW%20approved-Yes%2C%20but%20classy-ff69b4)
