@@ -1,4 +1,4 @@
-describe('Homepage Perf', () => {
+describe('Cart Perf', () => {
 
   beforeEach(() => {
     // On visite la page et on attend un petit délai pour que le DOM se stabilise.
@@ -8,7 +8,7 @@ describe('Homepage Perf', () => {
     cy.handleCookiePopup && cy.handleCookiePopup();
   });
 
-  it('should load the homepage in under 2 seconds (DOM interactive)', () => {
+  it('should load the Cart in under 2 seconds (DOM interactive)', () => {
     const t0 = performance.now();
     cy.visit(`${Cypress.config().baseUrl}/cart`).then(() => {
       const t1 = performance.now();
@@ -205,13 +205,29 @@ describe('Homepage Perf', () => {
 
     cy.get('@allRequests.all').then((interceptions) => {
       interceptions.forEach((req) => {
-        // On peut exclure les requêtes vers le domaine "monorail-edge.shopifysvc.com"
-        if (req.request.url.includes('monorail-edge.shopifysvc.com')) {
-          cy.log(`Skipping Shopify Monorail request: ${req.request.url}`);
+        const url = req.request.url;
+  
+        // ⚠️ Exclure XHR vers Shopify static/CDN
+        const ignoredDomains = [
+          'monorail-edge.shopifysvc.com',
+          'cdn.shopify.com',
+          'fonts.shopifycdn.com',
+          'shopifycloud.com',
+          'fonts.googleapis.com',
+          'checkout-web/assets',
+          'fonts.', 
+          '.woff', 
+          '.woff2',
+          '.ttf'
+        ];
+  
+        if (ignoredDomains.some(domain => url.includes(domain))) {
+          cy.log(`Ignoring external: ${url}`);
           return;
         }
+  
         if (req.state !== 'Complete') {
-          throw new Error(`Pending XHR: ${req.request.url}`);
+          throw new Error(`Pending XHR: ${url}`);
         }
       });
     });

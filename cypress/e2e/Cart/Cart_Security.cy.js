@@ -1,4 +1,4 @@
-describe('Homepage Security Tests', () => {
+describe('Cart Security Tests', () => {
 
   // Test 1 : Vérifier que le site est servi en HTTPS
   it('should be served over HTTPS', () => {

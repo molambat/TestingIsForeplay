@@ -28,6 +28,7 @@ This repo is crafted to showcase:
 - 🐞 **Bug reporting templates**
 - ⚙️ **GitHub Actions** already wired for CI on push
 - 🔐 **Clean structure**, no bloat — just effective QA
+- 🚀 **Load testing scripts** using k6 for stress simulation
 
 ---
 
@@ -59,6 +60,7 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ### 🏠 Homepage Tests
 - Focus: performance, UI load, localization, accessibility
+- Includes mobile/responsive view testing via Cypress viewport emulation
 → [Homepage README](cypress/e2e/Homepage/README.md)
 
 ### 🛒 Cart Tests (LamboDrip Store)
@@ -72,7 +74,8 @@ And when foreplay is that good… you might skip the release notes entirely. �
 ![Playwright Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/playwright.yml/badge.svg)
 
 ### 🏠 Homepage Tests
-- Mirrors Cypress: perf, security, accessibility, UX flows  
+- Mirrors Cypress: perf, security, accessibility, UX flows 
+- Includes mobile/responsive view testing via Playwright viewport emulation 
 → [Homepage Playwright](Playwright/tests/Homepage)
 
 ### 🛒 Cart Tests
@@ -92,6 +95,21 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 📸 Example Percy Snapshot:
 ![Percy Visual Snapshot](https://percy.io/static/images/percy-icon.svg)
+
+---
+
+## 🚀 Load & Stress Testing
+
+![Load Tested](https://img.shields.io/badge/Load%20Tested-k6-41c0f0?logo=k6&logoColor=white)
+
+- Tool: k6.io — modern load testing for developers
+- Goal: simulate real-world load against the homepage
+- Script: [homepage_stress](./k6/homepage_stress_test.js)
+- Result sample: 
+````
+✔ status is 200
+✔ page loaded under 1s
+````
 
 ---
 
@@ -124,14 +142,14 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 - Cypress e2e 🟢  
 - Playwright e2e 🟢  
+- Responsive & mobile testing 🟢  
 - Postman & SoapUI 🟢  
 - Percy visual testing 🟢
+- k6 load test script 🟢
 
 🧪 Still cooking:
 
-- **JMeter / k6** → Load testing, because we love it fast under pressure  
-- **OWASP ZAP** → For basic automated security scans  
-- **BrowserStack / Sauce Labs** → Device/browser cloud testing  
+- **OWASP ZAP** → For basic automated security scans   
 - **Allure / Xray** → Reporting that slaps  
 - **Dockerfile** → Spin the whole suite locally, one command
 
