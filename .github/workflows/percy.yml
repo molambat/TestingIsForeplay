@@ -4,18 +4,15 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   percy-tests:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Setup Node.js
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -23,7 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Run Percy visual tests with Playwright
-        run: npx percy exec -- npx playwright test Percy/
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Percy tests
+        run: npx percy exec -- npx playwright test Playwright/tests/Percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
