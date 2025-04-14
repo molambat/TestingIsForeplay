@@ -1,16 +1,20 @@
 import { test, expect } from '@playwright/test';
 import percySnapshot from '@percy/playwright';
 
-test('LamboDrip Homepage - Visual snapshot (Desktop + Mobile)', async ({ page }) => {
-  await page.goto('https://lambodrip.com');
-  await page.waitForLoadState('networkidle');
+test.describe('LamboDrip Homepage - Visual snapshot (Desktop + Mobile)', () => {
+  test('should visually match on desktop and mobile', async ({ page }) => {
+    await page.goto('https://lambodrip.com');
+    await page.waitForLoadState('networkidle'); // safe wait
 
-  // Desktop snapshot
-  await percySnapshot(page, 'LamboDrip Homepage - Desktop');
+    // ⬇️ Capture snapshot for Desktop 
+    await percySnapshot(page, 'LamboDrip Homepage - Desktop');
 
-  // Mobile snapshot
-  await page.setViewportSize({ width: 375, height: 667 });
-  await page.reload();
-  await page.waitForLoadState('networkidle');
-  await percySnapshot(page, 'LamboDrip Homepage - Mobile');
+    // ⬇️ Set viewport for mobile and reload
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.reload();
+    await page.waitForLoadState('networkidle');
+
+    // ⬇️ Capture snapshot for Mobile
+    await percySnapshot(page, 'LamboDrip Homepage - Mobile');
+  });
 });
