@@ -15,9 +15,12 @@ module.exports = defineConfig({
   reporter: [['html'], ['list']],
   projects: [
     {
-      name: 'visual-tests',
+      name: 'default', // ✅ Tous les tests sauf Percy
+      testMatch: /.*(?<!\.percy)\.spec\.ts/, // Exclut les .percy.spec.ts
+    },
+    {
+      name: 'visual-tests', // ✅ Uniquement les tests Percy
       testMatch: /.*\.percy\.spec\.ts/,
-      testDir: './Playwright/tests',
     }
   ]
 });
