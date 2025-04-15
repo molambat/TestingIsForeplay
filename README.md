@@ -29,6 +29,7 @@ This repo is crafted to showcase:
 - ⚙️ **GitHub Actions** already wired for CI on push
 - 🔐 **Clean structure**, no bloat — just effective QA
 - 🚀 **Load testing scripts** using k6 for stress simulation
+- 🛡️ **OWASP ZAP baseline security scans** with reports
 
 ---
 
@@ -51,6 +52,7 @@ And when foreplay is that good… you might skip the release notes entirely. �
 | ⚙️ CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
 | 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure (planned)                        |
 | 📱 Responsive Testing  | Cypress Viewport, Percy Multi-Viewport snapshots                            |
+| 🛡️ Security Testing    | OWASP ZAP (baseline scan via GitHub Actions)                                |
 
 ---
 
@@ -110,6 +112,17 @@ And when foreplay is that good… you might skip the release notes entirely. �
 ✔ status is 200
 ✔ page loaded under 1s
 ````
+---
+
+## 🛡️ Security Scanning – OWASP ZAP
+
+![CI/CD Passed](https://github.com/molambat/TestingIsForeplay/actions/workflows/zap_scan.yml/badge.svg)
+
+- Tool: [OWASP ZAP](https://www.zaproxy.org/) – automated baseline security scan via GitHub Actions  
+- Goal: detect common vulnerabilities & misconfigurations (headers, cookies, CSP, etc.)
+- Scan type: **passive-only**, safe to run in CI pipelines
+- Trigger: manual GitHub workflow (`workflow_dispatch`)
+- 🔎 Reports available in [`Docs/21_zap-report`](./Docs/21_zap-report)
 
 ---
 
@@ -146,10 +159,10 @@ And when foreplay is that good… you might skip the release notes entirely. �
 - Postman & SoapUI 🟢  
 - Percy visual testing 🟢
 - k6 load test script 🟢
+- OWASP ZAP 🟢
 
 🧪 Still cooking:
 
-- **OWASP ZAP** → For basic automated security scans   
 - **Allure / Xray** → Reporting that slaps  
 - **Dockerfile** → Spin the whole suite locally, one command
 
