@@ -1,22 +1,25 @@
-name: Security - OWASP ZAP Scan
+name: 🔐 OWASP ZAP Security Scan
 
 on:
-  workflow_dispatch:  # Exécutable manuellement depuis l’onglet Actions
+  workflow_dispatch:
 
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
     steps:
-      - name: ZAP Baseline Scan
+      - name: Run ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.11.0
         with:
-          target: 'http://lambodrip.com' 
+          target: 'https://lambodrip.com'  # ← Pour tester que tout marche
           fail_action: false
           token: ${{ secrets.GITHUB_TOKEN }}
-          cmd_options: '-r report.html'
+          cmd_options: '-r report_html.html -w report_md.md -x report_json.json'
 
-      - name: Upload ZAP Report
+      - name: Upload ZAP Reports
         uses: actions/upload-artifact@v4
         with:
-          name: zap-report
-          path: report_html.html
+          name: zap-reports
+          path: |
+            report_html.html
+            report_md.md
+            report_json.json
