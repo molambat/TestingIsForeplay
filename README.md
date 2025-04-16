@@ -75,8 +75,6 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ## ✨ Allure Reporting (Cypress)
 
-![Allure Badge](https://img.shields.io/badge/Reporting-Allure-f36?logo=allure&logoColor=white)
-
 **Allure reporting is integrated for Cypress tests** to generate rich, interactive test result dashboards.
 
 ### 📦 Setup
