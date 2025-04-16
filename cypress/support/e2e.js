@@ -14,7 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
+import 'allure-cypress';
 Cypress.on('uncaught:exception', (err, runnable) => {
     // Ignore the known Goaffpro duplicate load error
     if (err.message.includes('Goaffpro is already loaded')) {

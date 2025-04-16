@@ -22,14 +22,15 @@ This repo is crafted to showcase:
 
 ## 💚 What’s inside?
 
-- ✅ **Cypress & Playwright e2e test suites**
-- 🖼️ **Visual regression testing with Percy**
 - 📝 **Manual test cases** & execution reports
 - 🐞 **Bug reporting templates**
+- ✅ **Cypress & Playwright e2e test suites**
+- 🖼️ **Visual regression testing with Percy**
 - ⚙️ **GitHub Actions** already wired for CI on push
 - 🔐 **Clean structure**, no bloat — just effective QA
 - 🚀 **Load testing scripts** using k6 for stress simulation
 - 🛡️ **OWASP ZAP baseline security scans** with reports
+- 🐳 **Docker support** for instant local runs — no setup needed
 
 ---
 
@@ -50,9 +51,10 @@ And when foreplay is that good… you might skip the release notes entirely. �
 | 🧠 Manual QA           | Markdown-based test cases, Defect templates                                 |
 | 🧼 API tests           | Postman, SoapUI                                                             |
 | ⚙️ CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
-| 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure (planned)                        |
+| 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure  (Cypress HTML reports)          |
 | 📱 Responsive Testing  | Cypress Viewport, Percy Multi-Viewport snapshots                            |
 | 🛡️ Security Testing    | OWASP ZAP (baseline scan via GitHub Actions)                                |
+| 🐳 Containerization    | Docker (Node + Cypress + Playwright + CI-ready image)                       |
 
 ---
 
@@ -68,6 +70,25 @@ And when foreplay is that good… you might skip the release notes entirely. �
 ### 🛒 Cart Tests (LamboDrip Store)
 - Covers: quantity updates, price calculation, removal, checkout redirects
 → [Cart README](cypress/e2e/Cart/README.md)
+
+---
+
+## ✨ Allure Reporting (Cypress)
+
+![Allure Badge](https://img.shields.io/badge/Reporting-Allure-f36?logo=allure&logoColor=white)
+
+**Allure reporting is integrated for Cypress tests** to generate rich, interactive test result dashboards.
+
+### 📦 Setup
+
+- Plugin: [`allure-cypress`](https://www.npmjs.com/package/allure-cypress)
+- Reports are generated after test runs via `allure-results` directory
+- View with:
+
+```bash
+npm run allure:generate
+npm run allure:open
+```
 
 ---
 
@@ -138,6 +159,20 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ---
 
+## 🐳 Run Locally with Docker
+
+![Dockerized](https://img.shields.io/badge/Dockerized-Yes-blue?logo=docker)
+
+Want to test everything without setting up Node, Cypress or Playwright locally?  
+Just use Docker:
+
+```bash
+docker build -t testingisforeplay .
+docker run --rm testingisforeplay
+````
+
+---
+
 ## 📎 QA Docs & Assets
 
 - 🧠 [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  
@@ -160,11 +195,8 @@ And when foreplay is that good… you might skip the release notes entirely. �
 - Percy visual testing 🟢
 - k6 load test script 🟢
 - OWASP ZAP 🟢
-
-🧪 Still cooking:
-
-- **Allure / Xray** → Reporting that slaps  
-- **Dockerfile** → Spin the whole suite locally, one command
+- Dockerfile 🟢
+- Allure reporting integration (Cypress) 🟢
 
 ---
 

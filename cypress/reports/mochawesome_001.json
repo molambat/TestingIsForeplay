@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-16T21:24:53.715Z",
+    "end": "2025-04-16T21:25:47.596Z",
+    "duration": 53881,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "67e6bd1f-aafb-4833-8c2b-ef06d72c17e9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Cart\\Cart.cy.js",
+      "file": "cypress\\e2e\\Cart\\Cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+          "title": "Cart Functionality - LamboDrip",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should show the cart as empty when nothing is added",
+              "fullTitle": "Cart Functionality - LamboDrip should show the cart as empty when nothing is added",
+              "timedOut": null,
+              "duration": 2805,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.wait(400);\ncy.contains(/your cart is empty/i).should('exist');",
+              "err": {},
+              "uuid": "6b881b2c-9b91-432c-b705-eda0f0e71cf6",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should add a product to the cart from product page",
+              "fullTitle": "Cart Functionality - LamboDrip should add a product to the cart from product page",
+              "timedOut": null,
+              "duration": 5559,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/products\"]').filter(':visible').first().click({\n  force: true\n});\ncy.wait(400);\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(400);\ncy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.wait(400);\nwaitForCartItems();\ncy.contains('Estimated total').should('exist');",
+              "err": {},
+              "uuid": "63998219-34b0-4361-99ec-f10177721b18",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow changing the quantity of a product in the cart",
+              "fullTitle": "Cart Functionality - LamboDrip should allow changing the quantity of a product in the cart",
+              "timedOut": null,
+              "duration": 7142,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/products/\"]').filter(':visible').first().click({\n  force: true\n});\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(500);\ncy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.reload();\ncy.wait(400);\nwaitForCartItems();\ncy.wait(400);\ncy.get('tr.cart-item', {\n  timeout: 10000\n}).should('be.visible').within(() => {\n  cy.get('input.quantity__input').clear().type('2');\n});\ncy.wait(500);\ncy.get('input.quantity__input').first().should('have.value', '2');",
+              "err": {},
+              "uuid": "800914bf-abaf-40af-9447-0b5ab9a50657",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow removing a product from the cart",
+              "fullTitle": "Cart Functionality - LamboDrip should allow removing a product from the cart",
+              "timedOut": null,
+              "duration": 7498,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/products\"]').filter(':visible').first().click({\n  force: true\n});\ncy.wait(400);\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(400);\ncy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.wait(500);\ncy.reload();\ncy.wait(500);\nwaitForCartItems();\ncy.get('tr.cart-item').should('exist').and('be.visible');\ncy.get('cart-remove-button a.button--tertiary').should('be.visible');\ncy.get('cart-remove-button a.button--tertiary', {\n  timeout: 10000\n}).first().click({\n  force: true\n});\ncy.wait(500);\ncy.contains(/your cart is empty/i, {\n  timeout: 10000\n}).should('exist');",
+              "err": {},
+              "uuid": "34453019-95c8-4485-96da-969bc1554eb7",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle multiple products in the cart",
+              "fullTitle": "Cart Functionality - LamboDrip should handle multiple products in the cart",
+              "timedOut": null,
+              "duration": 9008,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const goAddProduct = () => {\n  cy.get('a[href*=\"/products\"]').filter(':visible').first().click({\n    force: true\n  });\n  cy.get('button[name=\"add\"]').should('exist').click({\n    force: true\n  });\n  cy.wait(1000); // Attente un peu plus longue pour que Shopify enregistre\n};\n// ➕ Premier produit\ngoAddProduct();\n// 🔁 Vérifie panier non vide\ncy.visit(`${Cypress.config().baseUrl}/cart`);\nwaitForCartItems();\ncy.get('tr.cart-item', {\n  timeout: 15000\n}).should('have.length.at.least', 1);\n// ➕ Deuxième produit\ncy.visit('/');\ncy.wait(500);\ncy.get('a[href*=\"/products\"]').filter(':visible').last().click({\n  force: true\n});\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(1000);\n// 🔁 Recheck panier\ncy.visit(`${Cypress.config().baseUrl}/cart`);\nwaitForCartItems();\n// ✅ Assertion finale\ncy.get('tr.cart-item', {\n  timeout: 15000\n}).should('have.length.at.least', 2);",
+              "err": {},
+              "uuid": "777cbd53-11a6-42a8-a9c3-ac45b69c69b2",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to checkout from the cart",
+              "fullTitle": "Cart Functionality - LamboDrip should go to checkout from the cart",
+              "timedOut": null,
+              "duration": 12839,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/products\"]').filter(':visible').first().click({\n  force: true\n});\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(1000);\ncy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.wait(1000);\nwaitForCartItems();\ncy.wait(1000);\n// 🔍 Attendre produit\ncy.get('tr.cart-item', {\n  timeout: 15000\n}).should('exist').and('be.visible');\n// 🔘 Checkout button\ncy.get('.cart__footer button[name=\"checkout\"]', {\n  timeout: 10000\n}).should('be.visible').scrollIntoView().click({\n  force: true\n});\ncy.wait(500);\ncy.reload();\ncy.wait(1000);\ncy.url({\n  timeout: 15000\n}).should('match', /\\/(checkout|checkouts)\\b/);",
+              "err": {},
+              "uuid": "e7377db8-01b9-4025-96e5-c0e0846f6519",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update total price when quantity changes",
+              "fullTitle": "Cart Functionality - LamboDrip should update total price when quantity changes",
+              "timedOut": null,
+              "duration": 8697,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/products\"]').filter(':visible').first().click({\n  force: true\n});\ncy.wait(200);\ncy.get('button[name=\"add\"]').should('exist').click({\n  force: true\n});\ncy.wait(400);\ncy.visit(`${Cypress.config().baseUrl}/cart`);\ncy.wait(500);\ncy.reload();\ncy.wait(1000);\nwaitUntilProductReallyInCart();\ncy.get('.totals__total-value', {\n  timeout: 10000\n}).should('exist');\ncy.get('.totals__total-value').invoke('text').then(totalBefore => {\n  cy.get('button.quantity__button[name=\"plus\"]').click({\n    force: true\n  });\n  cy.wait(1000);\n  // 🔁 Attendre que le prix change vraiment\n  cy.get('.totals__total-value', {\n    timeout: 8000\n  }).invoke('text').should(totalAfter => {\n    expect(totalAfter.trim()).not.to.eq(totalBefore.trim());\n  });\n});",
+              "err": {},
+              "uuid": "1ccf9a4a-5639-4e10-9381-c1629470f7cb",
+              "parentUUID": "8eb030f1-ee9a-4096-84c8-59a085d9a81a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6b881b2c-9b91-432c-b705-eda0f0e71cf6",
+            "63998219-34b0-4361-99ec-f10177721b18",
+            "800914bf-abaf-40af-9447-0b5ab9a50657",
+            "34453019-95c8-4485-96da-969bc1554eb7",
+            "777cbd53-11a6-42a8-a9c3-ac45b69c69b2",
+            "e7377db8-01b9-4025-96e5-c0e0846f6519",
+            "1ccf9a4a-5639-4e10-9381-c1629470f7cb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53548,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
