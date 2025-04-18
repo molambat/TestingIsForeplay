@@ -214,6 +214,7 @@ From CI/CD to UI/API, performance to pixel-perfection — I test it all. With st
 
 > I don’t flake under pressure.  
 > I retry until I pass — and always leave logs for you to replay it.
+> Ready to play ? Slide into my DMs. I promise I won’t bite... unless you ask nicely.
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
