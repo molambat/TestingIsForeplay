@@ -218,3 +218,4 @@ From CI/CD to UI/API, performance to pixel-perfection — I test it all. With st
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
 ![Percy](https://img.shields.io/badge/Pixel%20Perfect-With%20Percy-7b46f6?logo=percy&logoColor=white)
+![Tests Passed](https://img.shields.io/badge/Tests-Passed%20with%20pleasure-ff69b4?logo=heart)
