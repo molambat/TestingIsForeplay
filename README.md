@@ -199,15 +199,14 @@ docker run --rm testingisforeplay
 
 ## 👩‍💻 About Me
 
-QA Consultant with 6+ years of experience.  
-I don’t just automate — I craft seductive test flows that bugs can’t resist.  
-From CI/CD to UI/API, performance to pixel-perfection — I test it all. With style.
+**QA Automation Consultant — 6+ years experience. Remote only.**  
+I build test strategy from scratch, automate smart (not flaky), and write docs you’ll actually want to read.  
+Startups, messy legacy, or chaos-driven sprints? I bring calm, structure, and serious coverage.
 
-✨ Bonus: I make spicy QA content because testing ≠ boring.
+> Want more than just a README?
 
-・ [GitHub](https://github.com/molambat/QAbyDayNSFWbyNight)  
-・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/)  
-・ [Malt](https://www.malt.fr/profile/mohammadlambat)
+→ [GitHub](https://github.com/molambat/QAbyDayNSFWbyNight)  
+→ [All My Links](https://linkr.bio/m.lambat)
 
 ---
 
