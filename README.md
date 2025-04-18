@@ -87,6 +87,8 @@ And when foreplay is that good… you might skip the release notes entirely. �
 npm run allure:generate
 npm run allure:open
 ```
+### ✨ Allure Report Sample
+![Allure Report](./Docs/22_Allure_Report/Allure_Screen.png)
 
 ---
 
@@ -112,10 +114,7 @@ npm run allure:open
   - Homepage (Desktop 1280px / Mobile 375px)
 - GitHub Actions triggers Percy on push  
 → Visual regression diff example (Mobile viewport - 375px):
-![Percy diff mobile](./docs/screenshots/percy_mobile_diff.png)
-
-📸 Example Percy Snapshot:
-![Percy Visual Snapshot](https://percy.io/static/images/percy-icon.svg)
+![Percy Mobile Diff](./Docs/20_Screenshots_Percy/percy_mobile_diff.png)
 
 ---
 
