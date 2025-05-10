@@ -203,15 +203,6 @@ docker run --rm testingisforeplay
 I build test strategy from scratch, automate smart (not flaky), and write docs you’ll actually want to read.  
 Startups, messy legacy, or chaos-driven sprints? I bring calm, structure, and serious coverage.
 
-> Want more than just a README?
-
-→ [GitHub](https://github.com/molambat/QAbyDayNSFWbyNight)  
-→ [All My Links](https://linkr.bio/m.lambat)
-
----
-
-> Ready to play ? Slide into my DMs. I promise I won’t bite... unless you ask nicely.
-
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
 ![Percy](https://img.shields.io/badge/Pixel%20Perfect-With%20Percy-7b46f6?logo=percy&logoColor=white)
