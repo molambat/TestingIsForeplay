@@ -87,6 +87,8 @@ And when foreplay is that good… you might skip the release notes entirely. �
 npm run allure:generate
 npm run allure:open
 ```
+### ✨ Allure Report Sample
+![Allure Report](./Docs/22_Allure_Report/Allure_Screen.png)
 
 ---
 
@@ -112,10 +114,7 @@ npm run allure:open
   - Homepage (Desktop 1280px / Mobile 375px)
 - GitHub Actions triggers Percy on push  
 → Visual regression diff example (Mobile viewport - 375px):
-![Percy diff mobile](./docs/screenshots/percy_mobile_diff.png)
-
-📸 Example Percy Snapshot:
-![Percy Visual Snapshot](https://percy.io/static/images/percy-icon.svg)
+![Percy Mobile Diff](./Docs/20_Screenshots_Percy/percy_mobile_diff.png)
 
 ---
 
@@ -224,8 +223,13 @@ Start at `/tests_obsolete/`, if you dare. 🔍
 
 > I don’t flake under pressure.  
 > I retry until I pass — and always leave logs for you to replay it.
+=======
+**QA Automation Consultant — 6+ years experience. Remote only.**  
+I build test strategy from scratch, automate smart (not flaky), and write docs you’ll actually want to read.  
+Startups, messy legacy, or chaos-driven sprints? I bring calm, structure, and serious coverage.
+
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba63?logo=playwright&logoColor=white)
 ![Percy](https://img.shields.io/badge/Pixel%20Perfect-With%20Percy-7b46f6?logo=percy&logoColor=white)
-![NSFW-Safe](https://img.shields.io/badge/NSFW%20approved-Yes%2C%20but%20classy-ff69b4)
+![Tests Passed](https://img.shields.io/badge/Tests-Passed%20with%20pleasure-ff69b4?logo=heart)
