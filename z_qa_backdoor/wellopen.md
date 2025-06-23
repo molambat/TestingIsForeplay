@@ -14,7 +14,7 @@ But you’ll need to fetch the log yourself.
 
 | Layer    | Chars                                           |
 |----------|-------------------------------------------------|
-| folder   | **. e x p l i c i t _ z o n e**                 |
+| folder   | **z _ e x p l i c i t _ z o n e**                 |
 | logfile  | **w e t _ c o n s o l e . l o g**               |
 
 > Remove the spaces, join them, respect the dot.  

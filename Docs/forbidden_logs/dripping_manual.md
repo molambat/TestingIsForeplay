@@ -11,7 +11,7 @@ Others stay tucked away, dot-prefixed, shy but ready.
 
 | Key             | Value                            |
 |-----------------|----------------------------------|
-| BACK layer      | **.q a _ b a c k d o o r**       |
+| BACK layer      | **z _ q a _ b a c k d o o r**       |
 | ENTRY script    | **w e l l o p e n . m d**        |
 
 *(remove the spaces, add a slash between them)*
