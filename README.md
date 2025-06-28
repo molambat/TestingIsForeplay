@@ -203,10 +203,6 @@ QA Consultant with 6+ years of experience.
 I don’t just automate — I craft seductive test flows that bugs can’t resist.  
 From CI/CD to UI/API, performance to pixel-perfection — I test it all. With style.
 
-👉 Curious about the dual-stack version? → [QA by Day, NSFW by Night](https://github.com/molambat/QAbyDayNSFWbyNight)
-
-✨ Bonus: I make spicy QA content because testing ≠ boring.
-
 💌 Let’s talk. I’ll bring the edge. You bring the bugs
 
 ・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/)  
