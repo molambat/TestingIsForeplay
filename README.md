@@ -2,39 +2,39 @@
 
 ![teasing gif here](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHFyZnBwZnk3YzV2NGQ5dDh4dTZocHRnYTU0dHRnY3hod3gyejZuNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ybuKc5xTF2gC5na/giphy.gif)
 
-**Nothing flaky allowed — unless it's intentional. 😉**
+**Nothing flaky allowed — unless it's intentional. **
 
 Welcome to my personal automation playground  
-> ⚠️ This repo contains explicit attention to detail and intense QA sessions.
+>  This repo contains explicit attention to detail and intense QA sessions.
 
 ---
 
-## 🔥 Let’s get intimate (with the code)
+##  Let’s get intimate (with the code)
 
 This repo is crafted to showcase:
 
-- 🔬 Real-world QA flows, tested with **Cypress**, **Playwright** & **Percy**
-- 🧠 **Manual QA approach** with clean test case writing & bug templates
-- 🛠️ **CI/CD pipeline integration** via GitHub Actions
-- 💅 Code that’s clean, readable, and unapologetically confident
+-  Real-world QA flows, tested with **Cypress**, **Playwright** & **Percy**
+-  **Manual QA approach** with clean test case writing & bug templates
+-  **CI/CD pipeline integration** via GitHub Actions
+-  Code that’s clean, readable, and unapologetically confident
 
 ---
 
-## 💚 What’s inside?
+##  What’s inside?
 
-- 📝 **Manual test cases** & execution reports
-- 🐞 **Bug reporting templates**
-- ✅ **Cypress & Playwright e2e test suites**
-- 🖼️ **Visual regression testing with Percy**
-- ⚙️ **GitHub Actions** already wired for CI on push
-- 🔐 **Clean structure**, no bloat — just effective QA
-- 🚀 **Load testing scripts** using k6 for stress simulation
-- 🛡️ **OWASP ZAP baseline security scans** with reports
-- 🐳 **Docker support** for instant local runs — no setup needed
+-  **Manual test cases** & execution reports
+-  **Bug reporting templates**
+-  **Cypress & Playwright e2e test suites**
+-  **Visual regression testing with Percy**
+-  **GitHub Actions** already wired for CI on push
+-  **Clean structure**, no bloat — just effective QA
+-  **Load testing scripts** using k6 for stress simulation
+-  **OWASP ZAP baseline security scans** with reports
+-  **Docker support** for instant local runs — no setup needed
 
 ---
 
-## 💡 Why “TestingIsForeplay”?
+##  Why “TestingIsForeplay”?
 
 Because **good QA is anticipation**.  
 You don’t go to production without a bit of build-up.  
@@ -42,42 +42,42 @@ And when foreplay is that good… you might skip the release notes entirely. �
 
 ---
 
-## 🧪 Stack & Tools
+##  Stack & Tools
 
 | Category               | Tools                                                                       |
 |------------------------|-----------------------------------------------------------------------------|
-| ✅ Automated tests     | Cypress (v14+), Playwright (v1.43+), Percy                                  |
-| 🖼️ Visual Regression   | Percy (Playwright integration), supports desktop + mobile breakpoints       |
-| 🧠 Manual QA           | Markdown-based test cases, Defect templates                                 |
-| 🧼 API tests           | Postman, SoapUI                                                             |
-| ⚙️ CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
-| 📦 Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure  (Cypress HTML reports)          |
-| 📱 Responsive Testing  | Cypress Viewport, Percy Multi-Viewport snapshots                            |
-| 🛡️ Security Testing    | OWASP ZAP (baseline scan via GitHub Actions)                                |
-| 🐳 Containerization    | Docker (Node + Cypress + Playwright + CI-ready image)                       |
+|  Automated tests     | Cypress (v14+), Playwright (v1.43+), Percy                                  |
+|  Visual Regression   | Percy (Playwright integration), supports desktop + mobile breakpoints       |
+|  Manual QA           | Markdown-based test cases, Defect templates                                 |
+|  API tests           | Postman, SoapUI                                                             |
+|  CI/CD               | GitHub Actions CI, Percy snapshots CI-integrated                            |
+|  Docs & Reporting    | Master Test Plan, Tracker, QA Tips, Allure  (Cypress HTML reports)          |
+|  Responsive Testing  | Cypress Viewport, Percy Multi-Viewport snapshots                            |
+|  Security Testing    | OWASP ZAP (baseline scan via GitHub Actions)                                |
+|  Containerization    | Docker (Node + Cypress + Playwright + CI-ready image)                       |
 
 ---
 
-## 📁 Cypress Tests 
+##  Cypress Tests 
 
 ![Cypress Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/cypress.yml/badge.svg)
 
-### 🏠 Homepage Tests
+###  Homepage Tests
 - Focus: performance, UI load, localization, accessibility
 - Includes mobile/responsive view testing via Cypress viewport emulation
 → [Homepage README](cypress/e2e/Homepage/README.md)
 
-### 🛒 Cart Tests (LamboDrip Store)
+###  Cart Tests (LamboDrip Store)
 - Covers: quantity updates, price calculation, removal, checkout redirects
 → [Cart README](cypress/e2e/Cart/README.md)
 
 ---
 
-## ✨ Allure Reporting (Cypress)
+##  Allure Reporting (Cypress)
 
 **Allure reporting is integrated for Cypress tests** to generate rich, interactive test result dashboards.
 
-### 📦 Setup
+###  Setup
 
 - Plugin: [`allure-cypress`](https://www.npmjs.com/package/allure-cypress)
 - Reports are generated after test runs via `allure-results` directory
@@ -87,25 +87,25 @@ And when foreplay is that good… you might skip the release notes entirely. �
 npm run allure:generate
 npm run allure:open
 ```
-### ✨ Allure Report Sample
+###  Allure Report Sample
 ![Allure Report](./Docs/22_Allure_Report/Allure_Screen.png)
 
 ---
 
-## 🎭 Playwright Tests
+##  Playwright Tests
 
 ![Playwright Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/playwright.yml/badge.svg)
 
-### 🏠 Homepage Tests
+###  Homepage Tests
 - Mirrors Cypress: perf, security, accessibility, UX flows 
 - Includes mobile/responsive view testing via Playwright viewport emulation 
 → [Homepage Playwright](Playwright/tests/Homepage)
 
-### 🛒 Cart Tests
+###  Cart Tests
 - Similar coverage as Cypress, with fast execution + visual tools  
 → [Cart Playwright README](Playwright/tests/Cart/README.md)
 
-### 📸 Percy (Visual Regression)
+###  Percy (Visual Regression)
 
 ![Percy Visual Tests](https://github.com/molambat/TestingIsForeplay/actions/workflows/percy.yml/badge.svg)
 
@@ -118,7 +118,7 @@ npm run allure:open
 
 ---
 
-## 🚀 Load & Stress Testing
+##  Load & Stress Testing
 
 ![Load Tested](https://img.shields.io/badge/Load%20Tested-k6-41c0f0?logo=k6&logoColor=white)
 
@@ -132,7 +132,7 @@ npm run allure:open
 ````
 ---
 
-## 🛡️ Security Scanning – OWASP ZAP
+##  Security Scanning – OWASP ZAP
 
 ![CI/CD Passed](https://github.com/molambat/TestingIsForeplay/actions/workflows/zap_scan.yml/badge.svg)
 
@@ -144,7 +144,7 @@ npm run allure:open
 
 ---
 
-## 📬 API Tests
+##  API Tests
 
 ### Postman
 - Covers: cart actions, API validations
@@ -156,7 +156,7 @@ npm run allure:open
 
 ---
 
-## 🐳 Run Locally with Docker
+##  Run Locally with Docker
 
 ![Dockerized](https://img.shields.io/badge/Dockerized-Yes-blue?logo=docker)
 
@@ -170,20 +170,18 @@ docker run --rm testingisforeplay
 
 ---
 
-## 📎 QA Docs & Assets
+##  QA Docs & Assets
 
-- 🧠 [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  
-- 🗂️ [Master Test Plan](./Docs/MasterTestPlan/Master_test_Plan.md)  
-- ✅ [Test Execution Tracker](./Docs/Test%20Execution%20Tracker/Test_Execution_Tracker.md)  
-- 🐛 [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)  
-- 🚨 [TNR Checklist](./Docs/TNR%20Checklist/TNR_Checklist.md)  
-- 🎯 [Why QA Matters (PPT & PDF)](./Docs/Why_QA)  
+-  [QA Tips & Best Practices](./Docs/QA_Tips_Best_Practices.md)  
+-  [Master Test Plan](./Docs/MasterTestPlan/Master_test_Plan.md)  
+-  [Test Execution Tracker](./Docs/Test%20Execution%20Tracker/Test_Execution_Tracker.md)  
+-  [Defect Management Template](./Docs/Defect%20Management%20Template/Defect_Management_Template.md)  
+-  [TNR Checklist](./Docs/TNR%20Checklist/TNR_Checklist.md)  
+-  [Why QA Matters (PPT & PDF)](./Docs/Why_QA)  
 
 ---
 
-## 🔮 Next Chapter?
-
-✅ Done:
+## ✅ Done:
 
 - Cypress e2e 🟢  
 - Playwright e2e 🟢  
@@ -197,32 +195,28 @@ docker run --rm testingisforeplay
 
 ---
 
-## 👩‍💻 About Me
+##  About Me
 
 QA Consultant with 6+ years of experience.  
 I don’t just automate — I craft seductive test flows that bugs can’t resist.  
 From CI/CD to UI/API, performance to pixel-perfection — I test it all. With style.
 
-💌 Let’s talk. I’ll bring the edge. You bring the bugs
+ Let’s talk. I’ll bring the edge. You bring the bugs
 
 ・ [LinkedIn](https://www.linkedin.com/in/m-lambat/)  
 ・ [Malt](https://www.malt.fr/profile/mohammadlambat)
 
-## 🧩 Optional Curiosity Trail
+##  Optional Curiosity Trail
 
 Somewhere in this repo a single test refuses to behave.  
 If you follow the breadcrumbs, they lead deeper… and dirtier.
 
-Start at `/tests_obsolete/`, if you dare. 🔍
+Start at `/tests_obsolete/`, if you dare. 
 
 ---
 
 > I don’t flake under pressure.  
 > I retry until I pass — and always leave logs for you to replay it.
-=======
-**QA Automation Consultant — 6+ years experience. Remote only.**  
-I build test strategy from scratch, automate smart (not flaky), and write docs you’ll actually want to read.  
-Startups, messy legacy, or chaos-driven sprints? I bring calm, structure, and serious coverage.
 
 
 ![Cypress](https://img.shields.io/badge/Tested%20with-Cypress-6e40c9?logo=cypress&logoColor=white)
