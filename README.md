@@ -206,13 +206,6 @@ From CI/CD to UI/API, performance to pixel-perfection — I test it all. With st
 ・ [LinkedIn](https://www.linkedin.com/in/m-lambat/)  
 ・ [Malt](https://www.malt.fr/profile/mohammadlambat)
 
-##  Optional Curiosity Trail
-
-Somewhere in this repo a single test refuses to behave.  
-If you follow the breadcrumbs, they lead deeper… and dirtier.
-
-Start at `/tests_obsolete/`, if you dare. 
-
 ---
 
 > I don’t flake under pressure.  
