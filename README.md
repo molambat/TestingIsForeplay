@@ -205,7 +205,7 @@ From CI/CD to UI/API, performance to pixel-perfection — I test it all. With st
 
 💌 Let’s talk. I’ll bring the edge. You bring the bugs
 
-・ [LinkedIn](https://www.linkedin.com/in/mohammad-lambat/)  
+・ [LinkedIn](https://www.linkedin.com/in/m-lambat/)  
 ・ [Malt](https://www.malt.fr/profile/mohammadlambat)
 
 ## 🧩 Optional Curiosity Trail
